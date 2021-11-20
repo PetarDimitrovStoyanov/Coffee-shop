@@ -1,0 +1,65 @@
+.header {
+    border-bottom: 1px solid #4D3127;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 20%;
+}
+
+.joke {
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    margin: 150px auto 0;
+}
+
+.joke:nth-child(2) {
+    margin-top: 0;
+}
+
+.img-wrapper {
+    width: 450px;
+}
+
+.img-wrapper > img {
+    width: 100%;
+    object-fit: cover;
+}
+
+.brown {
+    font-size: 3.5rem;
+}
+
+.footer {
+    position: relative;
+}
+
+@media all and (max-width: 1214px) {
+    .message-section {
+        display: none;
+    }
+
+    .logo-add-product{
+        color: #4D3127;
+    }
+
+    .joke{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .footer{
+        position: relative;
+    }
+
+    .text-greeting{
+        text-align: center;
+    }
+}

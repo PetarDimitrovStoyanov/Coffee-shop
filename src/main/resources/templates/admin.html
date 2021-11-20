@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/footer-and-header.css">
+    <link rel="stylesheet" href="../css/buttons-and-text.css">
+    <link rel="stylesheet" href="../css/admin.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.7/css/all.css">
+    <title>Admin</title>
+</head>
+<body>
+<div th:replace="fragments/common::headerNavTwo"></div>
+
+<section class="content-profile">
+    <h2 class="text brown size-h2">ADMIN PAGE</h2>
+    <div class="btn-container">
+        <div class="btn-wrapper">
+            <a th:href="@{/admin/add-product}" class="btn btn-red btn-header-red">ADD PRODUCT</a>
+        </div>
+        <div class="btn-wrapper margin-top-btn">
+            <a th:href="@{/admin/all-users}" class="btn btn-red btn-header-red">ALL USERS</a>
+        </div>
+    </div>
+</section>
+
+<div class="topic margin-top-topic">
+    <h2 class="brown text">STATISTIC FOR THE ORDERS</h2>
+    <p class="red">This is the actual statistic of the offers made:</p>
+</div>
+
+<article class="statistic-content">
+    <table id="my-table" class="table table-hover">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">TotalAmount</th>
+            <th scope="col">Date</th>
+            <th scope="col">Payment method</th>
+            <th scope="col">Username</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <th scope="row">1</th>
+            <td>125.22</td>
+            <td>26.12.2020</td>
+            <td>Card</td>
+            <td>Nakata</td>
+        </tr>
+        <tr>
+            <th scope="row">2</th>
+            <td>125.22</td>
+            <td>26.12.2020</td>
+            <td>Cash</td>
+            <td>Icaka</td>
+        </tr>
+        <tr>
+            <th scope="row">3</th>
+            <td>105.00</td>
+            <td>26.12.2020</td>
+            <td>Card</td>
+            <td>Nakata</td>
+        </tr>
+        <tr>
+            <th scope="row">4</th>
+            <td>1450.50</td>
+            <td>28.04.2020</td>
+            <td>Card</td>
+            <td>Gencho</td>
+        </tr>
+        </tbody>
+        <tfoot>
+        <tr>
+            <th></th>
+            <th>1805.94</th>
+            <th></th>
+            <th></th>
+            <th></th>
+        </tr>
+        </tfoot>
+    </table>
+</article>
+
+<div class="topic">
+    <h2 class="brown text">STATISTIC FOR THE VISITATIONS</h2>
+    <p class="red">This is the actual statistic of the web application usage:</p>
+</div>
+
+<article class="statistic-content">
+    <table id="my-table2" class="table table-hover">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Number of visitations</th>
+            <th scope="col">Date</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <th scope="row">1</th>
+            <td>155</td>
+            <td>26.12.2020</td>
+        </tr>
+        <tr>
+            <th scope="row">2</th>
+            <td>33</td>
+            <td>26.12.2020</td>
+        </tr>
+        <tr>
+            <th scope="row">3</th>
+            <td>105</td>
+            <td>26.12.2020</td>
+        </tr>
+        <tr>
+            <th scope="row">4</th>
+            <td>13</td>
+            <td>28.04.2020</td>
+        </tr>
+        </tbody>
+        <tfoot>
+        <tr>
+            <th></th>
+            <th>306</th>
+            <th></th>
+        </tr>
+        </tfoot>
+    </table>
+</article>
+
+<div th:replace="fragments/common::footer"></div>
+<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="/js/Simple-jQuery-Dropdown-Table-Filter-Plugin-ddtf-js/ddtf.js"></script>
+<script>
+    $('#my-table').ddTableFilter();
+    $('#my-table2').ddTableFilter();
+</script>
+<script src="../js/media-header.js"></script>
+</body>
+</html>

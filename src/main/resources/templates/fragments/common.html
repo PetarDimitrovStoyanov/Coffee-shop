@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<!--MANDATORY-->
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<body>
+<!--Message-box-->
+<div th:fragment="headerNav">
+
+    <section class="message-section">
+        <p class="text">ALL ORDERS $35+ HAVE A DISCOUNT | IMPORTANT SHIPPING NOTICE <i class="fas fa-chevron-right"></i>
+        </p>
+    </section>
+
+    <header class="header">
+        <p class="logo transp logo-one">COFFEE shop</p>
+
+        <div class="navbar">
+            <p class="logo transp fix-line">COFFEE shop</p>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/about}">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/products}">Coffee</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/location-one}">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/admin/admin}">Admin</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/payments/shopping-cart.html}">Shopping cart</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/auth/user-profile}">My profile</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Х</a>
+                </li>
+            </ul>
+            <div class="hamburger2">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+
+        <div class="navigation">
+            <ul>
+                <li class="li-nav">
+                    <a class="nav-a transp" th:href="@{/about}">About</a>
+                </li>
+                <li class="li-nav">
+                    <a class="nav-a transp" th:href="@{/products}">Coffee</a>
+                </li>
+                <li class="li-nav">
+                    <a class="nav-a transp" th:href="@{/location-one}">Contact</a>
+                </li>
+                <li>
+                    <a class="nav-a transp" th:href="@{/admin/admin}">Admin</a>
+                </li>
+            </ul>
+        </div>
+        <div class="btn-header">
+            <a href="" class="btn-red btn-transparent distance btn-header-red btn-transp btn-media">ORDER AHEAD<i
+                    class="fas fa-chevron-right right-arrow btn-media" style="margin-left: 5px"></i></a>
+            <i class="transp fas fa-shopping-bag distance"></i>
+            <i class="transp far fa-user distance"></i>
+        </div>
+    </header>
+</div>
+
+
+<div th:fragment="headerNavTwo">
+    <section class="message-section">
+        <p class="text">ALL ORDERS $35+ HAVE A DISCOUNT | IMPORTANT SHIPPING NOTICE <i class="fas fa-chevron-right"></i></p>
+    </section>
+    <header class="header">
+        <p class="logo logo-three">COFFEE shop</p>
+
+        <div class="navbar">
+            <p class="logo-add-product">COFFEE shop</p>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/about}">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/products}">Coffee</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/location-one}">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/admin/admin}">Admin</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/payments/shopping-cart}">Shopping cart</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/auth/my-profile}">My profile</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Х</a>
+                </li>
+            </ul>
+            <div class="hamburger2">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+
+        <div class="navigation nav-two">
+            <ul>
+                <li class="li-nav">
+                    <a class="nav-a-c transp-c" th:href="@{/about}">ABOUT</a>
+                </li>
+                <li class="li-nav">
+                    <a class="nav-a-c transp-c" th:href="@{/products}">COFFEE</a>
+                </li>
+                <li class="li-nav">
+                    <a class="nav-a-c transp-c" th:href="@{/location-one}">CONTACT</a>
+                </li>
+                <li>
+                    <a class="nav-a-c transp-c" th:href="@{/admin/admin}">ADMIN</a>
+                </li>
+            </ul>
+        </div>
+        <div class="btn-header">
+            <a th:href="@{/payments/shopping-cart}" class="btn-red btn-transparent distance btn-header-red btn-transp btn-media">ORDER AHEAD</a>
+            <i class="transp-c fas fa-shopping-bag distance"></i>
+            <i class="transp-c far fa-user distance"></i>
+        </div>
+    </header>
+</div>
+
+<div th:fragment="footer">
+    <section  class="social-network">
+        <div class="wrapper-social-network">
+            <div class="wrapper-logo-network"><i class="fab fa-facebook-square"></i></div>
+            <div>
+                <p class="white-text p-social">#COFFEEUNPLUGGED</p>
+                <p class="p-social">@COFFEESHOP</p>
+            </div>
+        </div>
+        <div class="wrapper-social-network">
+            <div class="wrapper-logo-network"><i class="fab fa-instagram"></i></div>
+            <div>
+                <p class="white-text p-social">FOLLOW US</p>
+                <p class="p-social">COFFEE-SHOP</p>
+            </div>
+        </div>
+        <div class="wrapper-social-network">
+            <div class="wrapper-logo-network"><i class="fab fa-twitter-square"></i></div>
+            <div>
+                <p class="white-text p-social">TWIT NOW</p>
+                <p class="p-social">ROASTED COFFEE</p>
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+        <div class="footer-div">
+            <article class="red-logo">
+                <p class="logo">COFFEE<br>shop</p>
+            </article>
+            <article class="text-wrapper">
+                <div>
+                    <a class="text gold footer-p" th:href="@{/auth/login}">LOGIN</a>
+                    <a class="text gold footer-p" th:href="@{/auth/register}">REGISTER</a>
+                    <a class="text gold footer-p" th:href="@{/homepage}">HOME</a>
+                    <a class="text gold footer-p" th:href="@{/about}">ABOUT US</a>
+                </div>
+                <div>
+                    <a class="text gold footer-p" th:href="@{/location-one}">LOCATION</a>
+                    <a class="text gold footer-p" th:href="@{/location-one}">CONTACTS</a>
+                    <a class="text gold footer-p" th:href="@{/products}">PRODUCTS</a>
+                    <a class="text gold footer-p" th:href="@{/auth/user-profile}">MY PROFILE</a>
+                </div>
+            </article>
+            <article class="map">
+                <img src="../images/bg-removed.png" alt="">
+            </article>
+        </div>
+        <p class="footer-text">Copyright © 2021, Spring advanced project - SoftUni</p>
+    </footer>
+</div>
+
+</body>
+</html>

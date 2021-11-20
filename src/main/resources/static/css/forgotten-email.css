@@ -1,0 +1,48 @@
+.header {
+    border-bottom: 1px solid #4D3127;
+}
+
+.content{
+    width: 40%;
+    margin: 200px auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-header-red{
+    margin-top: 25px;
+    border-radius: 0;
+}
+
+#email{
+    width: 480px;
+}
+
+@media all and (max-width: 1190px ) {
+    .message-section {
+        display: none;
+    }
+
+    .content {
+        margin: 50px auto 50px;
+    }
+}
+
+@media all and (max-width: 1220px ) {
+    .statistic-content {
+        margin: 10px auto;
+    }
+}
+
+@media all and (max-width: 1600px ) {
+    .content {
+        margin: 250px auto 50px;
+        width: 90%;
+    }
+    .form-group{
+        width: 80%;
+    }
+
+}

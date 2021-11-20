@@ -1,0 +1,193 @@
+.header {
+    border-bottom: 1px solid #4D3127;
+}
+
+.size-h2 {
+    font-size: 40px;
+    text-align: center;
+}
+
+.btn-red {
+    border-radius: 0;
+}
+
+
+.btn-red:hover {
+    background: #D2102A;
+    border: 2px solid #D2102A;
+}
+
+input {
+    margin-bottom: 20px;
+}
+
+
+.register-form {
+    width: 40%;
+    margin: 180px auto;
+}
+
+.register-form {
+    margin-bottom: 30px;
+}
+
+.topic {
+    width: 100%;
+    margin-top: 15px;
+    background-color: #9E9C9C;
+    text-align: center;
+    padding-top: 10px;
+}
+
+.margin-top-topic {
+    margin-top: 145px;
+}
+
+.red {
+    letter-spacing: 1px;
+    font-family: Alike, serif;
+    font-size: 14px;
+    margin: 0;
+    padding-bottom: 10px;
+    color: white;
+}
+
+.fix-margin {
+    margin-top: 20px;
+}
+
+
+.btn-header-red {
+!important;
+    text-align: center;
+    padding-bottom: -25px;
+}
+
+/*CREDIT CARD FORM*/
+.creditCardForm {
+    max-width: 700px;
+    margin: 100px auto;
+    overflow: hidden;
+    padding: 25px;
+}
+
+.creditCardForm label {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+
+.creditCardForm .payment {
+    float: left;
+    font-size: 18px;
+    padding: 10px 25px;
+    margin-top: 20px;
+    position: relative;
+}
+
+.creditCardForm .payment .form-group {
+    float: left;
+    margin-bottom: 15px;
+}
+
+.creditCardForm .payment .form-control {
+    line-height: 40px;
+    height: auto;
+    padding: 0 16px;
+}
+
+.creditCardForm .owner {
+    width: 63%;
+    margin-right: 10px;
+}
+
+.creditCardForm .CVV {
+    width: 35%;
+}
+
+.creditCardForm #card-number-field {
+    width: 100%;
+}
+
+.creditCardForm #expiration-date {
+    width: 49%;
+}
+
+.creditCardForm #credit_cards {
+    width: 50%;
+    margin-top: 25px;
+    text-align: right;
+}
+
+.creditCardForm #pay-now {
+    width: 100%;
+    margin-top: 25px;
+}
+
+.form, .creditCardForm, .register-form{
+    margin-bottom: 0px;
+}
+
+.creditCardForm{
+    padding-bottom: 0px;
+}
+
+
+.btn:hover {
+    color: white;
+}
+
+#pay-now {
+    width: 100%;
+    margin-left: 37%;
+}
+
+.form-group > i{
+    font-size: 60px;
+    color: #4D3127;
+}
+
+.form-control-date-wrapper{
+    display: flex;
+    flex-direction: row;
+}
+
+.form-control-date{
+    width: fit-content;
+}
+
+.form-control-date:first-child{
+    margin-right: 10px;
+}
+
+@media (max-width: 650px) {
+    .creditCardForm .owner,
+    .creditCardForm .CVV,
+    .creditCardForm #expiration-date,
+    .creditCardForm #credit_cards {
+        width: 100%;
+    }
+
+    .creditCardForm #credit_cards {
+        text-align: left;
+    }
+}
+
+@media all and (max-width: 1214px) {
+    .message-section {
+        display: none;
+    }
+
+    .logo-add-product{
+        color: #4D3127;
+    }
+
+    .register-form{
+        width: 100%;
+    }
+
+    .footer{
+        margin-top: 50px;
+    }
+}
+

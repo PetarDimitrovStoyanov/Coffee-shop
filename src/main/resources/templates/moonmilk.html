@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/footer-and-header.css">
+    <link rel="stylesheet" href="../css/buttons-and-text.css">
+    <link rel="stylesheet" href="../css/moonmilk.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.7/css/all.css">
+    <title>Moonmilk</title>
+</head>
+<body>
+
+<div th:replace="fragments/common::headerNavTwo"></div>
+
+<section class="story" id="story">
+    <h2 class="text brown">FIND YOUR <br> SWEET SPOT</h2>
+    <p class="text red">COFFEE SHOP SIGNATURE MOON MILK®</p>
+    <p class="center grey">
+        Did you know that we can fine tune your Summer (Hot) or Winter Moon (Iced) Latte <br>
+        to just the right sweetness for your own unique tastebuds? <br>
+        It’s true!
+    </p>
+    <div class="moon-milk-wrapper"><img src="/images/moonmilk.png" alt=""></div>
+    <p class="center grey">
+        Those craving a decadent, sweet and creamy treat <br>
+        need look no further than our original Coffee shop Latte.
+    </p>
+    <p class="center grey">
+        Those looking for something less sweet might prefer to indulge <br>
+        in a Half Moon Latte (half-sweet), Quarter Moon Latte (1/4 sweet), a Whisper Moon (1/8) <br>
+        or any ratio in between!
+    </p>
+    <p class="center grey">
+        The Summer Moon Latte and signature Moon Milk® are available <br>
+        exclusively in Coffee Shops.
+    </p>
+    <p class="text red">OUR COFFEE</p>
+    <div class="wrapper-story-img"><img src="/images/about/vector-moonmilk.png" alt=""></div>
+</section>
+
+<div th:replace="fragments/common::footer"></div>
+<script src="../js/media-header.js"></script>
+</body>
+</html>

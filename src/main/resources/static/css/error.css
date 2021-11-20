@@ -1,0 +1,100 @@
+.header {
+    border-bottom: 1px solid #4D3127;
+}
+
+main, .buttons-error {
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+main {
+    padding-top: 250px;
+}
+
+.video-wrapper {
+    margin-left: 150px;
+}
+
+.wrapper-text {
+    margin-right: 150px;
+}
+
+h1 {
+    margin-top: 0;
+    padding-top: 0;
+}
+
+p {
+    color: grey;
+}
+
+.btn {
+    border-radius: 0;
+    padding: 10px 15px;
+    cursor: pointer;
+}
+
+.buttons-error {
+    position: relative;
+    margin-top: 30px;
+}
+
+video {
+    width: 150%;
+}
+
+@media all and (max-width: 1190px ) {
+    .message-section {
+        display: none;
+    }
+}
+
+@media all and (max-width: 1220px) {
+
+    .footer {
+        position: relative;
+    }
+
+    .logo-add-product {
+        color: #4D3127;
+    }
+
+    .buttons-error{
+        margin-bottom: 50px;
+    }
+}
+
+@media all and (max-width: 1500px ) {
+    .content {
+        margin: 150px auto 50px;
+        width: 90%;
+    }
+
+    .register-form {
+        width: 80%;
+    }
+
+    main {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        align-self: center;
+    }
+
+    .video-wrapper {
+        margin-left: 0;
+        width: 50%;
+        margin-right: 20%;
+    }
+
+    .wrapper-text {
+        margin-right: 0;
+    }
+
+    video {
+        object-fit: contain;
+    }
+
+}

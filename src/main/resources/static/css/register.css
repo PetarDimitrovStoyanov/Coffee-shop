@@ -1,0 +1,67 @@
+.nav-a, .logo, .btn-header > i {
+    color: #4D3127;
+}
+
+h2 {
+    font-family: Teko, sans-serif;
+    font-weight: 400;
+    color: #4D3127;
+    text-align: center;
+    font-size: 40px;
+}
+
+.btn-red {
+    border-radius: 0;
+}
+
+.btn-red:hover {
+    background: #D2102A;
+    border: 2px solid #D2102A;
+}
+
+input {
+    margin-bottom: 20px;
+}
+
+.p-social {
+    text-align: start;
+}
+
+.social-network{
+    margin-top: 0;!important;
+}
+
+.header{
+    border-bottom: 1px solid #4D3127;
+}
+
+/*register form*/
+
+.register-form{
+    width: 40%;
+    margin: 170px auto;
+}
+
+.register-form{
+    margin-bottom: 30px;
+}
+
+@media all and (max-width: 1214px) {
+    .message-section {
+        display: none;
+    }
+}
+
+@media all and (max-width: 1220px) {
+    .logo-add-product {
+        color: #4D3127;
+    }
+    .buttons-error{
+        margin-bottom: 50px;
+    }
+
+    .register-form{
+        width: 80%;
+    }
+}
+

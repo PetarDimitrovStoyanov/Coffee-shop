@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/footer-and-header.css">
+    <link rel="stylesheet" href="../css/buttons-and-text.css">
+    <link rel="stylesheet" href="../css/homepage.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.7/css/all.css">
+    <title>Homepage</title>
+</head>
+<body>
+<div th:replace="fragments/common::headerNav"></div>
+
+<div class="wrapper-article">
+    <video autoplay muted loop id="myVideo">
+        <source src="../videos/1409789312.mp4" type="video/mp4">
+    </video>
+    <p class="text video-text">WOOD FIRED COFFEE <br>OVER BULGARIAN OAK</p>
+
+    <div class="central-div see-more">
+        <button class="see-more-btn" id="see-more">SEE MORE</button>
+        <i class="fas fa-chevron-down" id="fa-chevron-down"></i>
+    </div>
+</div>
+<section class="below-video">
+    <p class="text red center">ROASTED COFFEE BEANS</p>
+    <h1 class="text big">FROM OUR HANDMADE <br> ROASTERS TO YOU</h1>
+    <p class="light-text">Our organic coffee beans are roasted over an open flame in a one-of-a-kind, <br>
+        brick roaster. There’s nothing quite like a cup of roasted coffee.</p>
+    <div class="center-div">
+        <a class="btn-red margin-top" href="">OUR COFFEES <i class="fas fa-chevron-right"></i></a>
+    </div>
+</section>
+<section class="slide-products">
+    <div class="wrap-prod"><img src="/images/products/afterglow.jpg" alt=""></div>
+    <div class="wrap-prod"><img src="/images/products/billowing.jpg" alt=""></div>
+    <div class="wrap-prod"><img src="/images/products/EnFuego.jpg" alt=""></div>
+    <div class="wrap-prod"><img src="/images/products/flyingEmber.jpg" alt=""></div>
+</section>
+<section class="inform-section">
+    <div class="bean-wrapper">
+        <img src="/images/bean.png" alt="">
+    </div>
+    <div class="content-message">
+        <div>NEW!</div>
+        <h2>ROASTED COFFEE</h2>
+        <p>The magic is in the small things... try the best roasted coffee ever!</p>
+    </div>
+</section>
+<section class="bellow-info">
+    <p class="text red center">Locations</p>
+    <h1 class="text big">THE COFFEE IS CLOSER <br> THAN YOU THINK</h1>
+    <p class="light-text">Find out if there's a Coffee shop near you:</p>
+    <div class="center-div">
+        <a class="btn-red margin-top" href="">ALL LOCATIONS <i class="fas fa-chevron-right"></i></a>
+    </div>
+</section>
+<section class="locations">
+    <article class="location-article">
+        <div class="wrapper-location"><img src="/images/locations/Location-one.PNG" alt=""></div>
+        <h5>Plovdiv 4000</h5>
+        <p>31 G.M. Dimitrov str.</p>
+        <button class="direction">SEE MORE</button>
+    </article>
+    <article class="location-article">
+        <div class="wrapper-location"><img src="/images/locations/Location-two.PNG" alt=""></div>
+        <h5>Sofia 1000</h5>
+        <p>42 Ivan Vazov str.</p>
+        <button class="direction">SEE MORE</button>
+    </article>
+    <article class="location-article">
+        <div class="wrapper-location"><img src="/images/locations/Location-three.PNG" alt=""></div>
+        <h5>Burgas 8000</h5>
+        <p>13 Georgi Baev str.</p>
+        <button class="direction">SEE MORE</button>
+    </article>
+</section>
+
+<div th:replace="fragments/common::footer"></div>
+
+<script src="../js/header.js"></script>
+<script src="../js/homepage.js"></script>
+<script src="../js/media-header.js"></script>
+</body>
+</html>

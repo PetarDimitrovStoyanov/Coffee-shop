@@ -1,0 +1,129 @@
+@import url('https://fonts.googleapis.com/css2?family=Alike&family=Montserrat:wght@900&family=Teko:wght@500;600;700&display=swap');
+
+font-face {
+    font-family: 'Teko', sans-serif;
+}
+
+font-face {
+    font-family: 'Montserrat', sans-serif;
+}
+
+font-face {
+    font-family: 'Alike', serif;
+}
+
+.text {
+    font-family: Teko, sans-serif;
+}
+
+.red {
+    color: #D2102A;
+    letter-spacing: 3px;
+    font-size: 18px;
+}
+
+.center-div > a:hover {
+    background: #D2102A;
+    color: white;
+}
+
+.btn-red > i {
+    font-size: 20px;
+}
+
+.btn-transparent {
+    background: transparent;
+}
+
+.btn-header {
+    color: white;
+}
+
+.btn-header-red:hover {
+    background: #D2102A;
+    color: white;
+}
+
+.light-text {
+    color: #9E9C9C;
+    font-family: Alike, sans-serif;
+    text-align: center;
+}
+
+.brown{
+    color: #4D3127;
+}
+
+.btn-header{
+    cursor: pointer;
+}
+
+.center {
+    text-align: center;
+}
+
+.fa-chevron-right {
+    font-size: 16px;
+}
+
+.btn-red {
+    border: 2px solid #D2102A;
+    color: #D2102A;;
+    background: white;
+    text-decoration: none;
+    font-family: Teko, sans-serif;
+    padding: 10px 40px;
+    font-size: 24px;
+    font-weight: 400;
+}
+
+.center-div {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top: 25px;
+}
+
+.light-brown{
+    border-radius: 0;
+    border: 2px solid #AF957D;
+    color: white;
+    background: #AF957D;
+}
+
+.light-brown:hover{
+    color: #AF957D;
+    background: white;
+}
+
+.grey {
+    color: #9E9C9C;
+}
+
+.details-btn{
+    font-size: 14px;
+    margin: 20px 100px;
+}
+
+.btn-transp{
+    background-color: transparent;
+}
+
+.light-brown-text{
+    font-family: Teko, sans-serif;
+    font-weight: 400;
+    font-size: 24px;
+    color: #AF957D;
+}
+
+.light-grey{
+    color: #9E9C9C;
+}
+
+.right-arrow{
+    visibility: hidden;
+}
+
+
+

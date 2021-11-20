@@ -1,0 +1,25 @@
+spring:
+    datasource:
+        driverClassName: com.mysql.cj.jdbc.Driver
+        password: 1234
+        url: jdbc:mysql://localhost:3306/coffee_db?allowPublicKeyRetrieval=true&useSSL=false&createDatabaseIfNotExist=true&serverTimezone=UTC
+        username: root
+    jpa:
+        database-platform: org.hibernate.dialect.MySQL8Dialect
+        defer-datasource-initialization: true
+        hibernate:
+            ddl-auto: update
+        open-in-view: false
+        properties:
+            hibernate:
+                format_sql: true
+    mvc:
+        hiddenmethod:
+            filter:
+                enabled: true
+    servlet:
+        multipart:
+            max-file-size: 1MB
+            max-request-size: 5MB
+jwt:
+ secret: secretkey123
