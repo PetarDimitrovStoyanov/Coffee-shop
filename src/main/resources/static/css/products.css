@@ -1,4 +1,4 @@
-.transp-c, .nav-link, .logo-three{
+.transp-c, .nav-link, .logo-three {
     color: white;
 }
 
@@ -248,17 +248,47 @@
     border: 2px solid blue;
 }
 
+.brown-txt{
+    color: #4D3127;
+}
 
-@media all and (max-width: 1220px) {
+@media all and (max-width: 454px) {
+    p.video-text { !important;
+        display: none;
+    }
+}
+
+
+@media all and (max-width: 567px) {
+    .video-text {
+        margin-top: -10px;
+    }
+}
+
+@media all and (max-width: 750px) {
+       .video-text {
+        font-size: 50px;
+        display: block;
+        line-height: normal;
+    }
+
+    article.wrapper-item {
+        width: 90%;
+    }
+}
+
+@media all and (max-width: 1220px ) {
+
+    .wrapper-image {
+        height: auto;
+    }
+
     .message-section {
         display: none;
     }
 
 
     /*Hamburger*/
-    .navbar {
-        display: block;
-    }
 
     .logo-one {
         display: none;
@@ -285,23 +315,33 @@
         align-items: start;
         width: 80%;
     }
-}
 
-@media all and (max-width: 750px) {
-    .wrapper-article {
-       position: relative;
-        height: 350px;
-    }
-}
-
-@media all and (max-width: 1220px ) {
     .wrapper-item {
-        width: 90%;
         margin: 0 auto 25px;
     }
 
     .wrapper-article {
         padding-bottom: 0;
     }
+
+    .header {
+        top: 0;
+    }
+
+    .navbar{
+        flex-direction: row;
+        justify-content: space-between;
+        width: fit-content;
+        padding: 0;
+    }
+
+
+    .logo-add-product {
+        color: white;
+        padding: 0;
+        text-align: center;
+        margin: 0 15px 0 0;
+    }
+
 }
 

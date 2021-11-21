@@ -10,3 +10,14 @@ document.querySelectorAll('.nav-link').forEach(n => n.addEventListener("click", 
     hamburger.classList.remove("active");
     navMenu.classList.remove("active");
 }));
+
+const header = document.querySelectorAll('.header')[0];
+const logo = document.querySelectorAll('.logo-three')[0];
+
+header.addEventListener("mouseover", () => {
+    logo.classList.add("brown-txt");
+})
+
+header.addEventListener("mouseout", () => {
+    logo.classList.remove("brown-txt");
+})
