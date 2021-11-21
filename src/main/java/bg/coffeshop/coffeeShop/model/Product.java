@@ -14,6 +14,7 @@ public class Product extends BaseEntity {
     private BigDecimal price;
     private String comment;
     private Boolean status;
+    private String picture;
     private List<Order> orders;
 
    public Product() {
@@ -53,6 +54,15 @@ public class Product extends BaseEntity {
 
    public void setStatus(Boolean status) {
       this.status = status;
+   }
+
+   @Column(columnDefinition = "LONGBLOB")
+   public String getPicture() {
+      return picture;
+   }
+
+   public void setPicture(String picture) {
+      this.picture = picture;
    }
 
    @ManyToMany(mappedBy = "products")

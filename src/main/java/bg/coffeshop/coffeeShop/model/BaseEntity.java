@@ -11,7 +11,7 @@ public class BaseEntity {
 
     private String id;
 
-    public BaseEntity() {
+    protected BaseEntity() {
     }
 
     @Id
