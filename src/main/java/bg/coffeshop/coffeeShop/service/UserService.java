@@ -1,16 +1,16 @@
 package bg.coffeshop.coffeeShop.service;
 
-import bg.coffeshop.coffeeShop.model.User;
+import bg.coffeshop.coffeeShop.model.entity.UserEntity;
 
 import java.util.List;
 
 public interface UserService {
 
-    User saveUser(User user);
+    UserEntity saveUser(UserEntity userEntity);
 
-    User getUser(String username);
+    UserEntity getUser(String username);
 
-    List<User> getAllUsers();
+    List<UserEntity> getAllUsers();
 
     void initFirstUser();
 

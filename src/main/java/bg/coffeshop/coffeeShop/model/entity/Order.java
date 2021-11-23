@@ -1,4 +1,4 @@
-package bg.coffeshop.coffeeShop.model;
+package bg.coffeshop.coffeeShop.model.entity;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
@@ -13,7 +13,7 @@ public class Order extends BaseEntity {
     private Delivery delivery;
     private LocalDate date;
     private BigDecimal totalValue;
-    private User client;
+    private UserEntity client;
     private Integer discount;
 
     public Order() {
@@ -68,11 +68,11 @@ public class Order extends BaseEntity {
     }
 
     @ManyToOne
-    public User getClient() {
+    public UserEntity getClient() {
         return client;
     }
 
-    public void setClient(User client) {
+    public void setClient(UserEntity client) {
         this.client = client;
     }
 

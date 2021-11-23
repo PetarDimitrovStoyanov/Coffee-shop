@@ -1,4 +1,4 @@
-package bg.coffeshop.coffeeShop.model;
+package bg.coffeshop.coffeeShop.model.entity;
 
 import javax.persistence.*;
 import java.util.List;

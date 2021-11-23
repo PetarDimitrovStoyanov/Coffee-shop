@@ -1,16 +1,20 @@
 <!DOCTYPE html>
 <!--MANDATORY-->
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
 <body>
 <!--Message-box-->
 <div th:fragment="headerNav">
 
     <section class="message-section">
-        <p class="text">ALL ORDERS $35+ HAVE A DISCOUNT | IMPORTANT SHIPPING NOTICE <i class="fas fa-chevron-right"></i></p>
+        <p class="text">ALL ORDERS $35+ HAVE A DISCOUNT | IMPORTANT SHIPPING NOTICE <i class="fas fa-chevron-right"></i>
+        </p>
     </section>
 
-    <header class="header">
+    <header class="header" id="header">
         <p class="logo transp logo-one">COFFEE shop</p>
 
         <div class="navbar">
@@ -25,15 +29,23 @@
                 <li class="nav-item">
                     <a class="nav-link" th:href="@{/location-one}">Contact</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item" sec:authorize="hasRole('ROLE_ROLE_ADMINISTRATOR')">
                     <a class="nav-link" th:href="@{/admin/admin}">Admin</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item" sec:authorize="isAuthenticated()">
                     <a class="nav-link" th:href="@{/payments/shopping-cart.html}">Shopping cart</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item" sec:authorize="isAuthenticated()">
                     <a class="nav-link" th:href="@{/auth/user-profile}">My profile</a>
                 </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/auth/login}" sec:authorize="!isAuthenticated()">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/auth/register}" sec:authorize="!isAuthenticated()">Register</a>
+                </li>
+
                 <li class="nav-item">
                     <a class="nav-link" href="#">Х</a>
                 </li>
@@ -56,16 +68,35 @@
                 <li class="li-nav">
                     <a class="nav-a transp" th:href="@{/location-one}">Contact</a>
                 </li>
-                <li>
-                    <a class="nav-a transp" th:href="@{/admin/admin}">Admin</a>
-                </li>
+
+                <th:block sec:authorize="hasRole('ROLE_ADMINISTRATOR')">
+                    <li>
+                        <a class="nav-a transp" th:href="@{/admin/admin}">Admin</a>
+                    </li>
+                </th:block>
+
+                <th:block sec:authorize="isAuthenticated()">
+                    <li class="li-nav">
+                        <a class="nav-a transp" th:href="@{/auth/user-profile}">My profile</a>
+                    </li>
+                </th:block>
+
+                <th:block sec:authorize="!isAuthenticated()">
+                    <li class="li-nav">
+                        <a class="nav-a transp" th:href="@{/auth/login}">Login</a>
+                    </li>
+                    <li class="li-nav">
+                        <a class="nav-a transp" th:href="@{/auth/register}">Register</a>
+                    </li>
+                </th:block>
+
             </ul>
         </div>
         <div class="btn-header">
             <a href="" class="btn-red btn-transparent distance btn-header-red btn-transp btn-media">ORDER AHEAD<i
                     class="fas fa-chevron-right right-arrow btn-media" style="margin-left: 5px"></i></a>
-            <i class="transp fas fa-shopping-bag distance"></i>
-            <i class="transp far fa-user distance"></i>
+            <i class="transp fas fa-shopping-bag distance" sec:authorize="isAuthenticated()"></i>
+            <i class="transp far fa-user distance" sec:authorize="isAuthenticated()"></i>
         </div>
     </header>
 </div>
@@ -73,13 +104,14 @@
 
 <div th:fragment="headerNavTwo">
     <section class="message-section">
-        <p class="text">ALL ORDERS $35+ HAVE A DISCOUNT | IMPORTANT SHIPPING NOTICE <i class="fas fa-chevron-right"></i></p>
+        <p class="text">ALL ORDERS $35+ HAVE A DISCOUNT | IMPORTANT SHIPPING NOTICE <i class="fas fa-chevron-right"></i>
+        </p>
     </section>
     <header class="header">
         <p class="logo logo-three">COFFEE shop</p>
 
         <div class="navbar">
-            <p class="logo-add-product products-logo">COFFEE shop</p>
+            <p class="logo-add-product">COFFEE shop</p>
             <ul class="nav-menu">
                 <li class="nav-item">
                     <a class="nav-link" th:href="@{/about}">About</a>
@@ -90,15 +122,23 @@
                 <li class="nav-item">
                     <a class="nav-link" th:href="@{/location-one}">Contact</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item" sec:authorize="hasRole('ROLE_ADMINISTRATOR')">
                     <a class="nav-link" th:href="@{/admin/admin}">Admin</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item" sec:authorize="isAuthenticated()">
                     <a class="nav-link" th:href="@{/payments/shopping-cart}">Shopping cart</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" th:href="@{/auth/user-profile}">My profile</a>
+                <li class="nav-item" sec:authorize="isAuthenticated()">
+                    <a class="nav-link" th:href="@{/auth/my-profile}">My profile</a>
                 </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/auth/login}" sec:authorize="!isAuthenticated()">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/auth/register}" sec:authorize="!isAuthenticated()">Register</a>
+                </li>
+
                 <li class="nav-item">
                     <a class="nav-link" href="#">Х</a>
                 </li>
@@ -121,69 +161,107 @@
                 <li class="li-nav">
                     <a class="nav-a-c transp-c" th:href="@{/location-one}">CONTACT</a>
                 </li>
-                <li>
-                    <a class="nav-a-c transp-c" th:href="@{/admin/admin}">ADMIN</a>
-                </li>
+
+                <th:block sec:authorize="hasRole('ROLE_ADMINISTRATOR')">
+                    <li>
+                        <a class="nav-a-c transp-c" th:href="@{/admin/admin}">ADMIN</a>
+                    </li>
+                </th:block>
+
+                <th:block sec:authorize="isAuthenticated()">
+                    <li class="li-nav">
+                        <a class="nav-a transp-c" th:href="@{/auth/user-profile}">My profile</a>
+                    </li>
+                </th:block>
+
+                <th:block sec:authorize="!isAuthenticated()">
+                    <li class="li-nav">
+                        <a class="nav-a transp-c" th:href="@{/auth/login}">Login</a>
+                    </li>
+                    <li class="li-nav">
+                        <a class="nav-a transp-c" th:href="@{/auth/register}">Register</a>
+                    </li>
+                </th:block>
+
             </ul>
         </div>
         <div class="btn-header">
-            <a th:href="@{/payments/shopping-cart}" class="btn-red btn-transparent distance btn-header-red btn-transp btn-media">ORDER AHEAD</a>
-            <i class="transp-c fas fa-shopping-bag distance"></i>
-            <i class="transp-c far fa-user distance"></i>
+            <a th:href="@{/payments/shopping-cart}"
+               class="btn-red btn-transparent distance btn-header-red btn-transp btn-media">ORDER AHEAD</a>
+            <i class="transp-c fas fa-shopping-bag distance" sec:authorize="isAuthenticated()"></i>
+            <i class="transp-c far fa-user distance" sec:authorize="isAuthenticated()"></i>
         </div>
     </header>
 </div>
 
-<div th:fragment="footer">
-    <section  class="social-network">
-        <div class="wrapper-social-network">
-            <div class="wrapper-logo-network"><i class="fab fa-facebook-square"></i></div>
-            <div>
-                <p class="white-text p-social">#COFFEEUNPLUGGED</p>
-                <p class="p-social">@COFFEESHOP</p>
-            </div>
-        </div>
-        <div class="wrapper-social-network">
-            <div class="wrapper-logo-network"><i class="fab fa-instagram"></i></div>
-            <div>
-                <p class="white-text p-social">FOLLOW US</p>
-                <p class="p-social">COFFEE-SHOP</p>
-            </div>
-        </div>
-        <div class="wrapper-social-network">
-            <div class="wrapper-logo-network"><i class="fab fa-twitter-square"></i></div>
-            <div>
-                <p class="white-text p-social">TWIT NOW</p>
-                <p class="p-social">ROASTED COFFEE</p>
-            </div>
-        </div>
-    </section>
-    <footer class="footer">
-        <div class="footer-div">
-            <article class="red-logo">
-                <p class="logo">COFFEE<br>shop</p>
-            </article>
-            <article class="text-wrapper">
+<th:block th:sec="isAuthenticated()">
+    <div th:fragment="footer">
+        <section class="social-network">
+            <div class="wrapper-social-network">
+                <div class="wrapper-logo-network"><i class="fab fa-facebook-square"></i></div>
                 <div>
-                    <a class="text gold footer-p" th:href="@{/auth/login}">LOGIN</a>
-                    <a class="text gold footer-p" th:href="@{/auth/register}">REGISTER</a>
-                    <a class="text gold footer-p" th:href="@{/homepage}">HOME</a>
-                    <a class="text gold footer-p" th:href="@{/about}">ABOUT US</a>
+                    <p class="white-text p-social">#COFFEEUNPLUGGED</p>
+                    <p class="p-social">@COFFEESHOP</p>
                 </div>
+            </div>
+            <div class="wrapper-social-network">
+                <div class="wrapper-logo-network"><i class="fab fa-instagram"></i></div>
                 <div>
-                    <a class="text gold footer-p" th:href="@{/location-one}">LOCATION</a>
-                    <a class="text gold footer-p" th:href="@{/location-one}">CONTACTS</a>
-                    <a class="text gold footer-p" th:href="@{/products}">PRODUCTS</a>
-                    <a class="text gold footer-p" th:href="@{/auth/user-profile}">MY PROFILE</a>
+                    <p class="white-text p-social">FOLLOW US</p>
+                    <p class="p-social">COFFEE-SHOP</p>
                 </div>
-            </article>
-            <article class="map">
-                <img src="../images/bg-removed.png" alt="">
-            </article>
-        </div>
-        <p class="footer-text">Copyright © 2021, Spring advanced project - SoftUni</p>
-    </footer>
-</div>
+            </div>
+            <div class="wrapper-social-network">
+                <div class="wrapper-logo-network"><i class="fab fa-twitter-square"></i></div>
+                <div>
+                    <p class="white-text p-social">TWIT NOW</p>
+                    <p class="p-social">ROASTED COFFEE</p>
+                </div>
+            </div>
+        </section>
+        <footer class="footer">
+            <div class="footer-div">
+                <article class="red-logo">
+                    <p class="logo">COFFEE<br>shop</p>
+                </article>
 
+                <th:block sec:authorize="!isAuthenticated()">
+                    <article class="text-wrapper">
+                        <div>
+                            <a class="text gold footer-p" th:href="@{/auth/login}">LOGIN</a>
+                            <a class="text gold footer-p" th:href="@{/auth/register}">REGISTER</a>
+                            <a class="text gold footer-p" th:href="@{/homepage}">HOME</a>
+                        </div>
+                        <div>
+                            <a class="text gold footer-p" th:href="@{/about}">ABOUT US</a>
+                            <a class="text gold footer-p" th:href="@{/location-one}">LOCATION</a>
+                            <a class="text gold footer-p" th:href="@{/location-one}">CONTACTS</a>
+                        </div>
+                    </article>
+                </th:block>
+
+                <th:block sec:authorize="isAuthenticated()">
+                    <article class="text-wrapper">
+                        <div>
+                            <a class="text gold footer-p" th:href="@{/homepage}">HOME</a>
+                            <a class="text gold footer-p" th:href="@{/about}">ABOUT US</a>
+                            <a class="text gold footer-p" th:href="@{/location-one}">LOCATION</a>
+                        </div>
+                        <div>
+                            <a class="text gold footer-p" th:href="@{/location-one}">CONTACTS</a>
+                            <a class="text gold footer-p" th:href="@{/products}">PRODUCTS</a>
+                            <a class="text gold footer-p" th:href="@{/auth/user-profile}">MY PROFILE</a>
+                        </div>
+                    </article>
+                </th:block>
+
+                <article class="map">
+                    <img src="../images/bg-removed.png" alt="">
+                </article>
+            </div>
+            <p class="footer-text">Copyright © 2021, Spring advanced project - SoftUni</p>
+        </footer>
+    </div>
+</th:block>
 </body>
 </html>

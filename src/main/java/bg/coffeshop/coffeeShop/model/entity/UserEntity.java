@@ -1,16 +1,13 @@
-package bg.coffeshop.coffeeShop.model;
+package bg.coffeshop.coffeeShop.model.entity;
 
 import bg.coffeshop.coffeeShop.constant.GenderEnum;
-import bg.coffeshop.coffeeShop.constant.RoleEnum;
-import com.sun.istack.NotNull;
 
 import javax.persistence.*;
 import java.util.List;
-import java.util.Set;
 
 @Entity
 @Table(name = "users")
-public class User extends BaseEntity {
+public class UserEntity extends BaseEntity {
     private String firstName;
     private String lastName;
     private String username;
@@ -19,17 +16,17 @@ public class User extends BaseEntity {
     private String password;
     private String phoneNumber;
     private Integer age;
-    private Set<RoleEnum> roles;
+    private List<Role> roles;
     private List<Order> orders;
 
-    public User() {
+    public UserEntity() {
     }
 
     public String getFirstName() {
         return firstName;
     }
 
-    public User setFirstName(String firstName) {
+    public UserEntity setFirstName(String firstName) {
         this.firstName = firstName;
         return this;
     }
@@ -38,7 +35,7 @@ public class User extends BaseEntity {
         return lastName;
     }
 
-    public User setLastName(String lastName) {
+    public UserEntity setLastName(String lastName) {
         this.lastName = lastName;
         return this;
     }
@@ -48,7 +45,7 @@ public class User extends BaseEntity {
         return username;
     }
 
-    public User setUsername(String username) {
+    public UserEntity setUsername(String username) {
         this.username = username;
         return this;
     }
@@ -58,7 +55,7 @@ public class User extends BaseEntity {
         return gender;
     }
 
-    public User setGender(GenderEnum gender) {
+    public UserEntity setGender(GenderEnum gender) {
         this.gender = gender;
         return this;
     }
@@ -68,7 +65,7 @@ public class User extends BaseEntity {
         return email;
     }
 
-    public User setEmail(String email) {
+    public UserEntity setEmail(String email) {
         this.email = email;
         return this;
     }
@@ -78,7 +75,7 @@ public class User extends BaseEntity {
         return password;
     }
 
-    public User setPassword(String password) {
+    public UserEntity setPassword(String password) {
         this.password = password;
         return this;
     }
@@ -87,7 +84,7 @@ public class User extends BaseEntity {
         return phoneNumber;
     }
 
-    public User setPhoneNumber(String phoneNumber) {
+    public UserEntity setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
         return this;
     }
@@ -96,19 +93,20 @@ public class User extends BaseEntity {
         return age;
     }
 
-    public User setAge(Integer age) {
+    public UserEntity setAge(Integer age) {
         this.age = age;
         return this;
     }
 
-    @ElementCollection
-    @Enumerated(EnumType.STRING)
-    @Column(nullable = false)
-    public Set<RoleEnum> getRoles() {
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "users_roles",
+            joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id"))
+    public List<Role> getRoles() {
         return roles;
     }
 
-    public User setRoles(Set<RoleEnum> roles) {
+    public UserEntity setRoles(List<Role> roles) {
         this.roles = roles;
         return this;
     }

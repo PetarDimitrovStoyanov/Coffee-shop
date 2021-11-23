@@ -1,8 +1,11 @@
 package bg.coffeshop.coffeeShop.web;
 
+import bg.coffeshop.coffeeShop.model.view.UserViewModel;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+
 
 @Controller
 @RequestMapping("/auth")
@@ -32,4 +35,7 @@ public class AuthenticationController {
     public String profile() {
         return "user-profile";
     }
+
 }
+
+

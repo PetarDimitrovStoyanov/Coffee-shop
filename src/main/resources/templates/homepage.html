@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1" name="viewport"/>
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/footer-and-header.css">
-    <link rel="stylesheet" href="../css/buttons-and-text.css">
-    <link rel="stylesheet" href="../css/homepage.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.7/css/all.css">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link rel="stylesheet" th:href="@{/css/footer-and-header.css}">
+    <link rel="stylesheet" th:href="@{/css/buttons-and-text.css}">
+    <link rel="stylesheet" th:href="@{/css/homepage.css}">
+    <link rel="stylesheet" th:href="@{https://use.fontawesome.com/releases/v5.0.7/css/all.css}">
     <title>Homepage</title>
 </head>
 <body>
@@ -15,7 +16,7 @@
 
 <div class="wrapper-article">
     <video autoplay muted loop id="myVideo">
-        <source src="../videos/1409789312.mp4" type="video/mp4">
+        <source src="/videos/1409789312.mp4" type="video/mp4">
     </video>
     <p class="text video-text">WOOD FIRED COFFEE <br>OVER BULGARIAN OAK</p>
 
@@ -80,8 +81,8 @@
 
 <div th:replace="fragments/common::footer"></div>
 
-<script th:src="@{../js/header.js}"></script>
-<script th:src="@{../js/homepage.js}"></script>
-<script th:src="@{../js/media-header.js}"></script>
+<script th:src="@{/js/header.js}"></script>
+<script th:src="@{/js/homepage.js}"></script>
+<script th:src="@{/js/media-header.js}"></script>
 </body>
 </html>

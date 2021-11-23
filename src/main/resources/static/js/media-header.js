@@ -11,7 +11,7 @@ document.querySelectorAll('.nav-link').forEach(n => n.addEventListener("click", 
     navMenu.classList.remove("active");
 }));
 
-const header = document.querySelectorAll('.header')[0];
+const header = document.querySelectorAll('.header');
 const logo = document.querySelectorAll('.logo-three')[0];
 
 header.addEventListener("mouseover", () => {

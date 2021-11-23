@@ -55,4 +55,10 @@ element.addEventListener("mouseout", (e) => {
     element.style.background = "transparent"
 })
 
+/*let admin = document.getElementById("admin");
+admin.addEventListener("click", () => {
+   location.href="https://www.geeksforgeeks.org";
+   console.log("hi")
+});*/
+
 
