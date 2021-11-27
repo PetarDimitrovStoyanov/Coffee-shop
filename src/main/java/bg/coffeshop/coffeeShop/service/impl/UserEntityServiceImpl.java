@@ -2,6 +2,7 @@ package bg.coffeshop.coffeeShop.service.impl;
 
 import bg.coffeshop.coffeeShop.constant.GenderEnum;
 import bg.coffeshop.coffeeShop.constant.RoleEnum;
+import bg.coffeshop.coffeeShop.model.binding.UserRegisterBindingModel;
 import bg.coffeshop.coffeeShop.model.entity.Role;
 import bg.coffeshop.coffeeShop.model.entity.UserEntity;
 import bg.coffeshop.coffeeShop.repository.UserEntityRepository;
@@ -12,6 +13,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class UserEntityServiceImpl implements UserService {
@@ -19,7 +21,7 @@ public class UserEntityServiceImpl implements UserService {
     private final RoleService roleService;
     private final PasswordEncoder passwordEncoder;
 
-    public UserEntityServiceImpl(UserEntityRepository userEntityRepository, RoleService roleService , PasswordEncoder passwordEncoder) {
+    public UserEntityServiceImpl(UserEntityRepository userEntityRepository, RoleService roleService, PasswordEncoder passwordEncoder) {
         this.userEntityRepository = userEntityRepository;
         this.roleService = roleService;
         this.passwordEncoder = passwordEncoder;
@@ -78,13 +80,23 @@ public class UserEntityServiceImpl implements UserService {
                     .setGender(GenderEnum.MALE)
                     .setEmail("user@abv.bg")
                     .setPassword(this.passwordEncoder.encode("asd"))
-                    /*.setPassword("asd")*/
                     .setPhoneNumber("+359 888 888 989")
                     .setAge(18)
                     .setRoles(roles2);
 
             this.userEntityRepository.saveAndFlush(userEntity2);
         }
+    }
+
+    @Override
+    public void saveInDB(UserEntity userEntity) {
+        this.userEntityRepository.saveAndFlush(userEntity);
+    }
+
+    @Override
+    public boolean isUserExists(UserRegisterBindingModel userRegisterBindingModel) {
+        Optional<UserEntity> userEntity = this.userEntityRepository.findByEmail(userRegisterBindingModel.getEmail());
+        return userEntity.isPresent();
     }
 
 }

@@ -1,20 +1,22 @@
 package bg.coffeshop.coffeeShop.web;
 
-import bg.coffeshop.coffeeShop.model.view.UserViewModel;
+import bg.coffeshop.coffeeShop.model.entity.Product;
+import bg.coffeshop.coffeeShop.repository.ProductRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 public class UserController {
 
+    private final ProductRepository productRepository;
+
+    public UserController(ProductRepository productRepository) {
+        this.productRepository = productRepository;
+    }
+
     @GetMapping("/")
-    public String homepage(UserViewModel userViewModel, BindingResult bindingResult, RedirectAttributes redirectAttributes) {
-        redirectAttributes.addFlashAttribute("userViewModel", userViewModel);
-        redirectAttributes.addFlashAttribute("check", false);
-        /* model.addAttribute("check", false);*/
+    public String homepage() {
         return "homepage";
     }
 
@@ -58,8 +60,4 @@ public class UserController {
         return "location-three";
     }
 
-    @ModelAttribute
-    private UserViewModel loginUserBindingModel() {
-        return new UserViewModel();
-    }
 }

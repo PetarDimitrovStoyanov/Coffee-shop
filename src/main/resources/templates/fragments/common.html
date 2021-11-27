@@ -75,12 +75,6 @@
                     </li>
                 </th:block>
 
-                <th:block sec:authorize="isAuthenticated()">
-                    <li class="li-nav">
-                        <a class="nav-a transp" th:href="@{/auth/user-profile}">My profile</a>
-                    </li>
-                </th:block>
-
                 <th:block sec:authorize="!isAuthenticated()">
                     <li class="li-nav">
                         <a class="nav-a transp" th:href="@{/auth/login}">Login</a>
@@ -96,7 +90,7 @@
             <a href="" class="btn-red btn-transparent distance btn-header-red btn-transp btn-media">ORDER AHEAD<i
                     class="fas fa-chevron-right right-arrow btn-media" style="margin-left: 5px"></i></a>
             <i class="transp fas fa-shopping-bag distance" sec:authorize="isAuthenticated()"></i>
-            <i class="transp far fa-user distance" sec:authorize="isAuthenticated()"></i>
+            <a th:href="@{/auth/user-profile}"> <i class="transp far fa-user distance" sec:authorize="isAuthenticated()"></i> </a>
         </div>
     </header>
 </div>
@@ -168,12 +162,6 @@
                     </li>
                 </th:block>
 
-                <th:block sec:authorize="isAuthenticated()">
-                    <li class="li-nav">
-                        <a class="nav-a transp-c" th:href="@{/auth/user-profile}">My profile</a>
-                    </li>
-                </th:block>
-
                 <th:block sec:authorize="!isAuthenticated()">
                     <li class="li-nav">
                         <a class="nav-a transp-c" th:href="@{/auth/login}">Login</a>
@@ -189,7 +177,7 @@
             <a th:href="@{/payments/shopping-cart}"
                class="btn-red btn-transparent distance btn-header-red btn-transp btn-media">ORDER AHEAD</a>
             <i class="transp-c fas fa-shopping-bag distance" sec:authorize="isAuthenticated()"></i>
-            <i class="transp-c far fa-user distance" sec:authorize="isAuthenticated()"></i>
+            <a th:href="@{/auth/user-profile}"> <i class="transp far fa-user distance" sec:authorize="isAuthenticated()"></i> </a>
         </div>
     </header>
 </div>

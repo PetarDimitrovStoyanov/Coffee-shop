@@ -1,5 +1,6 @@
 package bg.coffeshop.coffeeShop.service;
 
+import bg.coffeshop.coffeeShop.model.binding.UserRegisterBindingModel;
 import bg.coffeshop.coffeeShop.model.entity.UserEntity;
 
 import java.util.List;
@@ -14,4 +15,7 @@ public interface UserService {
 
     void initFirstUser();
 
+    void saveInDB(UserEntity userEntity);
+
+    boolean isUserExists(UserRegisterBindingModel userRegisterBindingModel);
 }

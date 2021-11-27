@@ -46,6 +46,19 @@ input {
     margin-bottom: 30px;
 }
 
+.gender-label{
+    margin-bottom: 10px;
+    padding-bottom: 0px;
+}
+
+#gender{
+    margin-top: 0;
+    margin-bottom: 25px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+}
+
+
 @media all and (max-width: 1214px) {
     .message-section {
         display: none;

@@ -4,6 +4,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 import java.util.List;
 
@@ -12,7 +13,7 @@ import java.util.List;
 public class Product extends BaseEntity {
     private String name;
     private BigDecimal price;
-    private String comment;
+    private String type;
     private Boolean status;
     private String picture;
     private List<Order> orders;
@@ -25,8 +26,9 @@ public class Product extends BaseEntity {
       return name;
    }
 
-   public void setName(String name) {
+   public Product setName(String name) {
       this.name = name;
+      return this;
    }
 
    @Column(nullable = false)
@@ -34,26 +36,29 @@ public class Product extends BaseEntity {
       return price;
    }
 
-   public void setPrice(BigDecimal price) {
+   public Product setPrice(BigDecimal price) {
       this.price = price;
-   }
-
-   @Column(columnDefinition = "LONGTEXT")
-   public String getComment() {
-      return comment;
-   }
-
-   public void setComment(String comment) {
-      this.comment = comment;
+      return this;
    }
 
    @Column
+   public String getType() {
+      return type;
+   }
+
+   public Product setType(String comment) {
+      this.type = comment;
+      return this;
+   }
+
+   @Column(nullable = false)
    public Boolean getStatus() {
       return status;
    }
 
-   public void setStatus(Boolean status) {
+   public Product setStatus(Boolean status) {
       this.status = status;
+      return this;
    }
 
    @Column(columnDefinition = "LONGBLOB")
@@ -61,8 +66,9 @@ public class Product extends BaseEntity {
       return picture;
    }
 
-   public void setPicture(String picture) {
+   public Product setPicture(String picture) {
       this.picture = picture;
+      return this;
    }
 
    @ManyToMany(mappedBy = "products")
@@ -70,7 +76,8 @@ public class Product extends BaseEntity {
       return orders;
    }
 
-   public void setOrders(List<Order> orders) {
+   public Product setOrders(List<Order> orders) {
       this.orders = orders;
+      return this;
    }
 }
