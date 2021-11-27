@@ -89,7 +89,7 @@
         <div class="btn-header">
             <a href="" class="btn-red btn-transparent distance btn-header-red btn-transp btn-media">ORDER AHEAD<i
                     class="fas fa-chevron-right right-arrow btn-media" style="margin-left: 5px"></i></a>
-            <i class="transp fas fa-shopping-bag distance" sec:authorize="isAuthenticated()"></i>
+            <a th:href="@{/shopping-cart}"><i class="transp fas fa-shopping-bag distance" sec:authorize="isAuthenticated()"></i></a>
             <a th:href="@{/auth/user-profile}"> <i class="transp far fa-user distance" sec:authorize="isAuthenticated()"></i> </a>
         </div>
     </header>
@@ -174,9 +174,8 @@
             </ul>
         </div>
         <div class="btn-header">
-            <a th:href="@{/payments/shopping-cart}"
-               class="btn-red btn-transparent distance btn-header-red btn-transp btn-media">ORDER AHEAD</a>
-            <i class="transp-c fas fa-shopping-bag distance" sec:authorize="isAuthenticated()"></i>
+            <a class="btn-red btn-transparent distance btn-header-red btn-transp btn-media">ORDER AHEAD</a>
+            <a th:href="@{/shopping-cart}"><i class="transp-c fas fa-shopping-bag distance" sec:authorize="isAuthenticated()"></i></a>
             <a th:href="@{/auth/user-profile}"> <i class="transp far fa-user distance" sec:authorize="isAuthenticated()"></i> </a>
         </div>
     </header>

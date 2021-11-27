@@ -2,21 +2,34 @@ package bg.coffeshop.coffeeShop.model.Service;
 
 import bg.coffeshop.coffeeShop.model.entity.Order;
 
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.math.BigDecimal;
 import java.util.List;
 
 public class ProductServiceModel {
 
+    private Long id;
     private String name;
     private BigDecimal price;
     private String type;
-    private Boolean status;
     private String picture;
     private List<Order> orders;
 
     public ProductServiceModel() {
     }
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    @NotNull(message = "The name is missing!")
+    @Size(min = 3, message = "The name should be at least 3 characters long!")
     public String getName() {
         return name;
     }
@@ -26,6 +39,8 @@ public class ProductServiceModel {
         return this;
     }
 
+    @NotNull(message = "The price is missing!")
+    @Min(value = 0, message = "The price should be a positive number")
     public BigDecimal getPrice() {
         return price;
     }
@@ -44,15 +59,6 @@ public class ProductServiceModel {
         return this;
     }
 
-    public Boolean getStatus() {
-        return status;
-    }
-
-    public ProductServiceModel  setStatus(Boolean status) {
-        this.status = status;
-        return this;
-    }
-
     public String getPicture() {
         return picture;
     }
@@ -66,7 +72,7 @@ public class ProductServiceModel {
         return orders;
     }
 
-    public ProductServiceModel  setOrders(List<Order> orders) {
+    public ProductServiceModel setOrders(List<Order> orders) {
         this.orders = orders;
         return this;
     }

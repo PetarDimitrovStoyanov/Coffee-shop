@@ -11,12 +11,10 @@ public class DataBaseInit implements CommandLineRunner {
 
     private final UserService userService;
     private final RoleService roleService;
-    private final ProductService productService;
 
-    public DataBaseInit(UserService userService, RoleService roleService, ProductService productService) {
+    public DataBaseInit(UserService userService, RoleService roleService) {
         this.userService = userService;
         this.roleService = roleService;
-        this.productService = productService;
     }
 
     @Override

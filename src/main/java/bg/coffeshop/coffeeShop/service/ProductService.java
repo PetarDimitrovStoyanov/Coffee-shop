@@ -8,9 +8,16 @@ import java.util.List;
 
 public interface ProductService {
 
+    // TODO: fix this to return ProductServiceModel
     Product saveInDB(ProductServiceModel product);
 
     List<ProductViewModel> findAll();
 
     boolean isProductExists(String name);
+
+    ProductServiceModel findById(Long id);
+
+    void deleteById(Long id) throws Exception;
+
+    void update(ProductServiceModel productServiceModel, Long id);
 }

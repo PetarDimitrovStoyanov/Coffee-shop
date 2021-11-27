@@ -6,22 +6,21 @@ import java.math.BigDecimal;
 import java.util.List;
 
 public class ProductViewModel {
-    private String id;
+    private Long id;
     private String name;
     private BigDecimal price;
-    private String comment;
-    private Boolean status;
+    private String type;
     private String picture;
     private List<Order> orders;
 
     public ProductViewModel() {
     }
 
-    public String getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -41,20 +40,12 @@ public class ProductViewModel {
         this.price = price;
     }
 
-    public String getComment() {
-        return comment;
+    public String getType() {
+        return type;
     }
 
-    public void setComment(String comment) {
-        this.comment = comment;
-    }
-
-    public Boolean getStatus() {
-        return status;
-    }
-
-    public void setStatus(Boolean status) {
-        this.status = status;
+    public void setType(String type) {
+        this.type = type;
     }
 
     public String getPicture() {

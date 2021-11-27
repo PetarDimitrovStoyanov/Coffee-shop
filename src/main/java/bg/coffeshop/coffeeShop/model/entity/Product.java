@@ -14,7 +14,6 @@ public class Product extends BaseEntity {
     private String name;
     private BigDecimal price;
     private String type;
-    private Boolean status;
     private String picture;
     private List<Order> orders;
 
@@ -48,16 +47,6 @@ public class Product extends BaseEntity {
 
    public Product setType(String comment) {
       this.type = comment;
-      return this;
-   }
-
-   @Column(nullable = false)
-   public Boolean getStatus() {
-      return status;
-   }
-
-   public Product setStatus(Boolean status) {
-      this.status = status;
       return this;
    }
 

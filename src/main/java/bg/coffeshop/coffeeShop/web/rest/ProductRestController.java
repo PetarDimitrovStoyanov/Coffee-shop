@@ -8,9 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.transaction.Transactional;
-/*import javax.validation.Valid;
 
-import java.net.URI;*/
 import java.util.List;
 
 @RestController
@@ -27,15 +25,6 @@ public class ProductRestController {
         List<ProductViewModel> products = this.productService.findAll();
         return new ResponseEntity<>(products, HttpStatus.OK);
     }
-
-/*    @PostMapping("/api/add-products")
-    public ResponseEntity<Product> create() {
-
-        Product product1 = this.productService.saveInDB(new Product());
-        URI location = URI.create(String.format("/api/products/%s", product1.getId()));
-
-        return ResponseEntity.created(location).body(product1);
-    }*/
 
 }
 

@@ -248,17 +248,21 @@
     border: 2px solid blue;
 }
 
-.brown-txt{
+.brown-txt {
     color: #4D3127;
 }
 
-.fa-shopping-bag{
+.fa-shopping-bag {
     color: white;
 }
 
+h3 {
+    margin-bottom: 0;
+}
 
 @media all and (max-width: 454px) {
-    p.video-text { !important;
+    p.video-text {
+    !important;
         display: none;
     }
 }
@@ -271,7 +275,7 @@
 }
 
 @media all and (max-width: 750px) {
-       .video-text {
+    .video-text {
         font-size: 50px;
         display: block;
         line-height: normal;
@@ -294,7 +298,6 @@
 
 
     /*Hamburger*/
-
     .logo-one {
         display: none;
     }
@@ -333,7 +336,7 @@
         top: 0;
     }
 
-    .navbar{
+    .navbar {
         flex-direction: row;
         justify-content: space-between;
         width: fit-content;
