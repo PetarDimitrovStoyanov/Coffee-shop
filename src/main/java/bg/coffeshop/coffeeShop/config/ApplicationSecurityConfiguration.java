@@ -23,7 +23,6 @@ public class ApplicationSecurityConfiguration extends WebSecurityConfigurerAdapt
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        System.out.println("asd");
         http
                 .authorizeRequests()
                 // with this line we allow access to all static resources

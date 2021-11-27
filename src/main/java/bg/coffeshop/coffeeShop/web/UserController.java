@@ -1,10 +1,21 @@
 package bg.coffeshop.coffeeShop.web;
 
+import bg.coffeshop.coffeeShop.model.Service.ProductServiceModel;
+import bg.coffeshop.coffeeShop.model.binding.ProductShoppingCartBindingModel;
+import bg.coffeshop.coffeeShop.util.ShoppingCart;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.math.BigDecimal;
+
 @Controller
 public class UserController {
+
+    private final ShoppingCart shoppingCart;
+
+    public UserController(ShoppingCart shoppingCart) {
+        this.shoppingCart = shoppingCart;
+    }
 
     @GetMapping("/")
     public String homepage() {
@@ -54,6 +65,19 @@ public class UserController {
     @GetMapping("/user-profile")
     public String profile() {
         return "user-profile";
+    }
+
+    @PostMapping("/products")
+    public String addToShoppingCart(@RequestParam String productName, @RequestParam String type, @RequestParam Integer piece, @RequestParam BigDecimal price) {
+        System.out.println(productName);
+        System.out.println(price.toString());
+        System.out.println("test");
+        return "/";
+    }
+
+    @ModelAttribute
+    private ProductShoppingCartBindingModel productShoppingCart() {
+        return new ProductShoppingCartBindingModel();
     }
 
 }

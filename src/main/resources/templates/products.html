@@ -31,6 +31,32 @@
 
 <section class="products" >
     <div id="products" style="display: none"></div>
+   <!-- <article class="wrapper-item" th:each="p : products" >
+        <div class="img-wrapper-item"><img th:src="@{data:image/jpg;base64,*{picture}}" alt="no picture available">
+        </div>
+        <form th:action="@{/products}" th:method="POST" th:object="${productShoppingCartBindingModel}" class="item-form">
+            <input th:field="productName" name="productName" disabled type="text" value="${product['name']}" class="text brown">
+            <div class="text-div-item">
+                <p class="gold">PRICE:</p>
+                <input th:field="price" th:name="price" name="price" class="gold" th:value="*{price}">
+            </div>
+            <div class="buttons-div-item">
+                <h4>Type</h4>
+                <div class="item-button" id="type">
+                    <input th:name="type" name="type" th:value="*{type}">
+                </div>
+            </div>
+            <div class="submit-btn-wrapper">
+                <div class="pieces-div">
+                    <i class="fas fa-minus sign"></i>
+                    <input disabled th:name="piece" name="price" type="text" id="qty1" th:value="1">
+                    <i class="fas fa-plus sign"></i>
+                </div>
+                <button type="submit" class="sbm-btn">ADD TO BAG<i class="transp fas fa-shopping-bag distance"></i></button>
+            </div>
+            <a th:href="@{/admin/edit-product/{id}(id=*{id})}" class="btn-product">EDIT PRODUCT</a>
+        </form>
+    </article>-->
 </section>
 
 <div th:replace="fragments/common::footer"></div>

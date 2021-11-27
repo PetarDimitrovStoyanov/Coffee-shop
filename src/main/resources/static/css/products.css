@@ -260,6 +260,10 @@ h3 {
     margin-bottom: 0;
 }
 
+.sign{
+    cursor: pointer;
+}
+
 @media all and (max-width: 454px) {
     p.video-text {
     !important;
