@@ -1,20 +1,30 @@
 package bg.coffeshop.coffeeShop.web;
 
 import bg.coffeshop.coffeeShop.model.Service.ProductServiceModel;
-import bg.coffeshop.coffeeShop.model.binding.ProductShoppingCartBindingModel;
+import bg.coffeshop.coffeeShop.model.binding.ProductBasketBindingModel;
+import bg.coffeshop.coffeeShop.model.entity.Product;
+import bg.coffeshop.coffeeShop.model.view.ProductViewModel;
+import bg.coffeshop.coffeeShop.service.ProductService;
 import bg.coffeshop.coffeeShop.util.ShoppingCart;
+import bg.coffeshop.coffeeShop.util.ShoppingCartEntity;
+import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.math.BigDecimal;
+import java.util.List;
 
 @Controller
 public class UserController {
 
     private final ShoppingCart shoppingCart;
+    private final ProductService productService;
+    private final ModelMapper modelMapper;
 
-    public UserController(ShoppingCart shoppingCart) {
+    public UserController(ShoppingCart shoppingCart, ProductService productService, ModelMapper modelMapper) {
         this.shoppingCart = shoppingCart;
+        this.productService = productService;
+        this.modelMapper = modelMapper;
     }
 
     @GetMapping("/")
@@ -28,7 +38,9 @@ public class UserController {
     }
 
     @GetMapping("/products")
-    public String products() {
+    public String products(Model model) {
+        List<ProductViewModel> productViewModels = this.productService.findAll();
+        model.addAttribute("products", productViewModels);
         return "products";
     }
 
@@ -67,17 +79,35 @@ public class UserController {
         return "user-profile";
     }
 
-    @PostMapping("/products")
-    public String addToShoppingCart(@RequestParam String productName, @RequestParam String type, @RequestParam Integer piece, @RequestParam BigDecimal price) {
-        System.out.println(productName);
-        System.out.println(price.toString());
-        System.out.println("test");
-        return "/";
+    @GetMapping("/order-it/{id}")
+    public String orderIt(@PathVariable Long id, Model model) {
+        ProductServiceModel productServiceModel = this.modelMapper.map(this.productService.findById(id), ProductServiceModel.class);
+        model.addAttribute("productServiceModel", productServiceModel);
+        return "order-it";
+    }
+
+    @PostMapping("/order-it/{id}")
+    public String addToBasket(ProductServiceModel productServiceModel, @PathVariable Long id) {
+        Product product = this.modelMapper.map(this.productService.findById(id), Product.class);
+
+        ShoppingCartEntity entity = new ShoppingCartEntity();
+        entity.setPiece(productServiceModel.getPiece());
+        entity.setPrice(product.getPrice());
+        entity.setProduct(product);
+
+        this.shoppingCart.getItems().add(entity);
+        return "redirect:/products";
     }
 
     @ModelAttribute
-    private ProductShoppingCartBindingModel productShoppingCart() {
-        return new ProductShoppingCartBindingModel();
+    private ProductBasketBindingModel productBasketBindingModel() {
+        return new ProductBasketBindingModel();
     }
+
+    @ModelAttribute
+    private ProductServiceModel productServiceModel() {
+        return new ProductServiceModel();
+    }
+
 
 }

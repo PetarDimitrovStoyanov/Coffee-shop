@@ -30,6 +30,7 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
+    @Transactional
     public List<ProductViewModel> findAll() {
 
         return this.productRepository

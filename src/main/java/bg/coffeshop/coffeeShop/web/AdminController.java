@@ -2,6 +2,7 @@ package bg.coffeshop.coffeeShop.web;
 
 import bg.coffeshop.coffeeShop.model.Service.ProductServiceModel;
 import bg.coffeshop.coffeeShop.model.binding.ProductBindingModel;
+import bg.coffeshop.coffeeShop.service.PictureService;
 import bg.coffeshop.coffeeShop.service.ProductService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,9 +21,11 @@ import java.util.Base64;
 public class AdminController {
 
     private final ProductService productService;
+    private final PictureService pictureService;
 
-    public AdminController(ProductService productService) {
+    public AdminController(ProductService productService, PictureService pictureService) {
         this.productService = productService;
+        this.pictureService = pictureService;
     }
 
     @GetMapping("/edit-product/{id}")
@@ -36,7 +39,7 @@ public class AdminController {
     public String editPost(@Valid ProductServiceModel productServiceModel,
                            BindingResult bindingResult, RedirectAttributes redirectAttributes,
                            @RequestParam("file") MultipartFile file, @PathVariable Long id) throws IOException {
-        System.out.println(id);
+
         if (bindingResult.hasErrors()) {
             redirectAttributes.addFlashAttribute("productServiceModel", productServiceModel);
             redirectAttributes.addFlashAttribute("org.springframework.validation.BindingResult.productServiceModel", bindingResult);

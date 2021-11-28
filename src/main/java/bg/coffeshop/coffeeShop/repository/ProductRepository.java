@@ -1,6 +1,7 @@
 package bg.coffeshop.coffeeShop.repository;
 
 import bg.coffeshop.coffeeShop.model.entity.Product;
+import org.hibernate.annotations.Fetch;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;

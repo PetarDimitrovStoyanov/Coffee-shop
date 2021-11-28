@@ -13,6 +13,7 @@ public class ProductServiceModel {
     private Long id;
     private String name;
     private BigDecimal price;
+    private Integer piece;
     private String type;
     private String picture;
     private List<Order> orders;
@@ -66,6 +67,14 @@ public class ProductServiceModel {
     public ProductServiceModel setPicture(String picture) {
         this.picture = picture;
         return this;
+    }
+
+    public Integer getPiece() {
+        return piece;
+    }
+
+    public void setPiece(Integer piece) {
+        this.piece = piece;
     }
 
     public List<Order> getOrders() {

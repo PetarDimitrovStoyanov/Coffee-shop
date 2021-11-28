@@ -31,32 +31,28 @@
 
 <section class="products" >
     <div id="products" style="display: none"></div>
-   <!-- <article class="wrapper-item" th:each="p : products" >
-        <div class="img-wrapper-item"><img th:src="@{data:image/jpg;base64,*{picture}}" alt="no picture available">
+    <article class="wrapper-item" th:each="p : ${products}" >
+        <div class="img-wrapper-item">
+            <img src="data:image/jpg;base64,*{p.picture}" alt="no picture available">
         </div>
-        <form th:action="@{/products}" th:method="POST" th:object="${productShoppingCartBindingModel}" class="item-form">
-            <input th:field="productName" name="productName" disabled type="text" value="${product['name']}" class="text brown">
+        <form th:action="@{/products}" th:method="POST" class="item-form">
+            <input name="name" disabled type="text" th:value="*{p.name}" class="text brown">
             <div class="text-div-item">
                 <p class="gold">PRICE:</p>
-                <input th:field="price" th:name="price" name="price" class="gold" th:value="*{price}">
+                <input name="price" class="gold inp-field" th:value="*{p.price.toString().concat('$')}">
             </div>
             <div class="buttons-div-item">
                 <h4>Type</h4>
                 <div class="item-button" id="type">
-                    <input th:name="type" name="type" th:value="*{type}">
+                    <input class="inp-field" name="type" th:value="*{p.type}">
                 </div>
             </div>
             <div class="submit-btn-wrapper">
-                <div class="pieces-div">
-                    <i class="fas fa-minus sign"></i>
-                    <input disabled th:name="piece" name="price" type="text" id="qty1" th:value="1">
-                    <i class="fas fa-plus sign"></i>
-                </div>
-                <button type="submit" class="sbm-btn">ADD TO BAG<i class="transp fas fa-shopping-bag distance"></i></button>
+                <a th:href="@{/order-it/{id}(id=${p.id})}" type="submit" class="sbm-btn">ORDER IT<i class="transp fas fa-shopping-bag distance"></i></a>
             </div>
-            <a th:href="@{/admin/edit-product/{id}(id=*{id})}" class="btn-product">EDIT PRODUCT</a>
+            <a th:href="@{/admin/edit-product/{id}(id=${p.id})}" class="btn-product">EDIT PRODUCT</a>
         </form>
-    </article>-->
+    </article>
 </section>
 
 <div th:replace="fragments/common::footer"></div>

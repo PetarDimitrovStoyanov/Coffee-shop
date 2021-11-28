@@ -1,3 +1,4 @@
+/*
 fetch('http://localhost:8080/api/products')
     .then(response => response.json())
     .then(data => {
@@ -32,7 +33,7 @@ fetch('http://localhost:8080/api/products')
         });
     })
     .then(data => {
-        let signs = document.getElementsByClassName('sign');
+       /!* let signs = document.getElementsByClassName('sign');
         for (let i = 0; i < signs.length; i++) {
             let sign = signs[i];
             sign.addEventListener("click", (e) => {
@@ -50,6 +51,7 @@ fetch('http://localhost:8080/api/products')
                     }
                 }
             })
-        }
+        }*!/
     });
 
+*/

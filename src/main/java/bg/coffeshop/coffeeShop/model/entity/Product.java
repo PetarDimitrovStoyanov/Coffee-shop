@@ -1,9 +1,6 @@
 package bg.coffeshop.coffeeShop.model.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.ManyToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 import java.util.List;
@@ -60,7 +57,7 @@ public class Product extends BaseEntity {
       return this;
    }
 
-   @ManyToMany(mappedBy = "products")
+   @ManyToMany(mappedBy = "products", fetch = FetchType.EAGER)
    public List<Order> getOrders() {
       return orders;
    }
