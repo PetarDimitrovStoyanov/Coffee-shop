@@ -16,6 +16,7 @@ public class Delivery extends BaseEntity{
     private String courier;
     private String email;
     private String phone;
+    private String person;
     private List<Order> orders;
 
     public Delivery() {
@@ -90,5 +91,14 @@ public class Delivery extends BaseEntity{
 
     public void setOrders(List<Order> orders) {
         this.orders = orders;
+    }
+
+    @Column(nullable = false)
+    public String getPerson() {
+        return person;
+    }
+
+    public void setPerson(String person) {
+        this.person = person;
     }
 }

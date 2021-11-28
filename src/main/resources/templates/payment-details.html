@@ -15,36 +15,54 @@
 <div th:replace="fragments/common::headerNavTwo"></div>
 
 
-<form action="" class="register-form">
+<section class="register-form">
     <div class="creditCardForm">
         <div class="heading">
             <h1 class="text brown size-h2">PAYMENT DETAILS</h1>
         </div>
         <div class="payment">
-            <form>
+            <form th:action="@{/payments/payment-details}" th:method="POST" th:object="${paymentBindingModel}">
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="checkBox">
+                    <input class="form-check-input" name="paymentType" type="checkbox" value="" id="checkBox">
                     <label class="form-check-label" for="checkBox">
                         Pay cash upon delivery.
                     </label>
                 </div>
                 <div class="form-group owner">
                     <label for="owner">Owner</label>
-                    <input type="text" class="form-control" id="owner">
+                    <input th:field="*{owner}" th:errorclass="bg-white" name="owner" type="text" class="form-control" id="owner">
+                    <small th:if="${#fields.hasErrors('owner')}"
+                           th:errors="*{owner}"
+                           id="ownerTypeHelpInline"
+                           class="bg-danger text-light rounded">
+                        This field cannot be empty!
+                    </small>
                 </div>
                 <div class="form-group CVV">
                     <label for="cvv">CVV</label>
-                    <input type="text" class="form-control" id="cvv">
+                    <input th:field="*{cvv}" th:errorclass="bg-white" name="cvv" type="text" class="form-control" id="cvv">
+                    <small th:if="${#fields.hasErrors('cvv')}"
+                           th:errors="*{cvv}"
+                           id="cvvTypeHelpInline"
+                           class="bg-danger text-light rounded">
+                        This field must contain exactly 3 symbols
+                    </small>
                 </div>
                 <div class="form-group" id="card-number-field">
                     <label for="cardNumber">Card Number</label>
-                    <input type="text" class="form-control" id="cardNumber">
+                    <input th:field="*{cardNumber}" th:errorclass="bg-white" name="cardNumber" type="text" class="form-control" id="cardNumber">
+                    <small th:if="${#fields.hasErrors('cardNumber')}"
+                           th:errors="*{cvv}"
+                           id="cardNumberTypeHelpInline"
+                           class="bg-danger text-light rounded">
+                        Not valid card format!
+                    </small>
                 </div>
                 <div class="form-group" id="expiration-date">
                     <label>Expiration Date</label>
                     <div class="form-control-date-wrapper">
-                        <select class="form-control form-control-date">
-                            <option value="01">January</option>
+                        <select th:field="*{expirationMonth}" th:errorclass="bg-white" name="expirationMonth" class="form-control form-control-date" id="expirationMonth">
+                            <option id="selectedMonth" selected value="01">January</option>
                             <option value="02">February</option>
                             <option value="03">March</option>
                             <option value="04">April</option>
@@ -57,14 +75,26 @@
                             <option value="11">November</option>
                             <option value="12">December</option>
                         </select>
-                        <select class="form-control form-control-date">
-                            <option value="21"> 2021</option>
+                        <small th:if="${#fields.hasErrors('expirationMonth')}"
+                               th:errors="*{expirationMonth}"
+                               id="expirationMonthHelpInline"
+                               class="bg-danger text-light rounded">
+                            This field cannot be empty!
+                        </small>
+                        <select th:field="*{expirationYear}" th:errorclass="bg-white" name="expirationYear" id="expirationYear" class="form-control form-control-date">
+                            <option id="selectedYear" selected value="21"> 2021</option>
                             <option value="22"> 2022</option>
                             <option value="23"> 2023</option>
                             <option value="24"> 2024</option>
                             <option value="25"> 2025</option>
                             <option value="26"> 2026</option>
                         </select>
+                        <small th:if="${#fields.hasErrors('expirationYear')}"
+                               th:errors="*{expirationMonth}"
+                               id="expirationYearHelpInline"
+                               class="bg-danger text-light rounded">
+                            This field cannot be empty!
+                        </small>
                     </div>
                 </div>
                 <div class="form-group" id="credit_cards">
@@ -72,16 +102,22 @@
                     <i class="fab fa-cc-visa"></i>
                     <i class="fab fa-cc-mastercard"></i>
                 </div>
-                <div class="form-group" id="pay-now">
-                    <button type="submit" class="btn btn-red btn-header" id="confirm-purchase">Confirm</button>
-                </div>
+                <th:block th:if="${shoppingCart.getItems().size() > 0}">
+                    <div class="form-group" id="pay-now">
+                        <button th:href="@{/payments/payment-details}" type="submit" class="btn btn-red btn-header" id="confirm-purchase">Confirm</button>
+                    </div>
+                </th:block>
             </form>
         </div>
     </div>
-</form>
+    <div class="btn-cancel-wrapper">
+        <a th:href="@{/payments/cancel}" class="btn btn-red btn-header">CANCEL</a>
+    </div>
+</section>
 
 <div th:replace="fragments/common::footer"></div>
 <script th:src="@{../js/payment-details.js}"></script>
 <script th:src="@{../js/media-header.js}"></script>
+<script th:src="@{../js/paymentChecked.js}"></script>
 </body>
 </html>

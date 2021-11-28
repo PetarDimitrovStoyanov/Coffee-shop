@@ -11,13 +11,13 @@ document.querySelectorAll('.nav-link').forEach(n => n.addEventListener("click", 
     navMenu.classList.remove("active");
 }));
 
-const header = document.querySelectorAll('.header');
+const header2 = document.querySelectorAll('.header')[0];
 const logo = document.querySelectorAll('.logo-three')[0];
 
-header.addEventListener("mouseover", () => {
+header2.addEventListener("mouseover", () => {
     logo.classList.add("brown-txt");
 })
 
-header.addEventListener("mouseout", () => {
+header2.addEventListener("mouseout", () => {
     logo.classList.remove("brown-txt");
 })

@@ -7,15 +7,17 @@ import java.util.List;
 @Table(name = "payment_details")
 public class Payment extends BaseEntity {
     private String paymentType;
-    private String provider;
-    private String cardType;
+    private String owner;
+    private String cvv;
+    private String expirationMonth;
+    private Integer expirationYear;
     private String cardNumber;
     private List<Order> orders;
 
     public Payment() {
     }
 
-    @Column(nullable = false, name = "payment_type")
+    @Column(name = "payment_type")
     public String getPaymentType() {
         return paymentType;
     }
@@ -25,21 +27,40 @@ public class Payment extends BaseEntity {
     }
 
     @Column(nullable = false)
-    public String getProvider() {
-        return provider;
+    public String getOwner() {
+        return owner;
     }
 
-    public void setProvider(String provider) {
-        this.provider = provider;
+    public void setOwner(String owner) {
+        this.owner = owner;
     }
 
-    @Column(nullable = false, name = "card_type")
-    public String getCardType() {
-        return cardType;
+    @Column(nullable = false)
+    public String getCvv() {
+        return cvv;
     }
 
-    public void setCardType(String cardType) {
-        this.cardType = cardType;
+
+    public void setCvv(String cvv) {
+        this.cvv = cvv;
+    }
+
+    @Column(nullable = false, name = "expiration_month")
+    public String getExpirationMonth() {
+        return expirationMonth;
+    }
+
+    public void setExpirationMonth(String expirationMonth) {
+        this.expirationMonth = expirationMonth;
+    }
+
+    @Column(nullable = false, name = "expiration_year")
+    public Integer getExpirationYear() {
+        return expirationYear;
+    }
+
+    public void setExpirationYear(Integer expirationYear) {
+        this.expirationYear = expirationYear;
     }
 
     @Column(nullable = false, name = "card_number")

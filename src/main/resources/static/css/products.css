@@ -273,6 +273,10 @@ h3 {
     margin-bottom: 0;
 }
 
+.navigation{
+    margin-right: 30px;
+}
+
 @media all and (max-width: 454px) {
     p.video-text {
     !important;

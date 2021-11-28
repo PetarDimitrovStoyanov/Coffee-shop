@@ -2,7 +2,6 @@ package bg.coffeshop.coffeeShop.web;
 
 import bg.coffeshop.coffeeShop.model.Service.ProductServiceModel;
 import bg.coffeshop.coffeeShop.model.binding.ProductBindingModel;
-import bg.coffeshop.coffeeShop.service.PictureService;
 import bg.coffeshop.coffeeShop.service.ProductService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,11 +20,9 @@ import java.util.Base64;
 public class AdminController {
 
     private final ProductService productService;
-    private final PictureService pictureService;
 
-    public AdminController(ProductService productService, PictureService pictureService) {
+    public AdminController(ProductService productService) {
         this.productService = productService;
-        this.pictureService = pictureService;
     }
 
     @GetMapping("/edit-product/{id}")

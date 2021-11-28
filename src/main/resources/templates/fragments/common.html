@@ -10,7 +10,7 @@
 <div th:fragment="headerNav">
 
     <section class="message-section">
-        <p class="text">ALL ORDERS $35+ HAVE A DISCOUNT | IMPORTANT SHIPPING NOTICE <i class="fas fa-chevron-right"></i>
+        <p class="text">WELCOME IN THE BEST ROASTED COFFEE SPOT | CHECK OUR WEB STORE <i class="fas fa-chevron-right"></i>
         </p>
     </section>
 
@@ -33,7 +33,7 @@
                     <a class="nav-link" th:href="@{/admin/admin}">Admin</a>
                 </li>
                 <li class="nav-item" sec:authorize="isAuthenticated()">
-                    <a class="nav-link" th:href="@{/payments/shopping-cart.html}">Shopping cart</a>
+                    <a class="nav-link" th:href="@{/payments/shopping-cart}">Shopping cart</a>
                 </li>
                 <li class="nav-item" sec:authorize="isAuthenticated()">
                     <a class="nav-link" th:href="@{/auth/user-profile}">My profile</a>
@@ -87,9 +87,9 @@
             </ul>
         </div>
         <div class="btn-header">
-            <a href="" class="btn-red btn-transparent distance btn-header-red btn-transp btn-media">ORDER AHEAD<i
+            <a th:href="@{/products}" class="btn-red btn-transparent distance btn-header-red btn-transp btn-media">ORDER AHEAD<i
                     class="fas fa-chevron-right right-arrow btn-media" style="margin-left: 5px"></i></a>
-            <a th:href="@{/shopping-cart}"><i class="transp fas fa-shopping-bag distance" sec:authorize="isAuthenticated()"></i></a>
+            <a th:href="@{/payments/shopping-cart}"><i class="transp fas fa-shopping-bag distance" sec:authorize="isAuthenticated()"></i></a>
             <a th:href="@{/auth/user-profile}"> <i class="transp far fa-user distance" sec:authorize="isAuthenticated()"></i> </a>
         </div>
     </header>
@@ -98,7 +98,7 @@
 
 <div th:fragment="headerNavTwo">
     <section class="message-section">
-        <p class="text">ALL ORDERS $35+ HAVE A DISCOUNT | IMPORTANT SHIPPING NOTICE <i class="fas fa-chevron-right"></i>
+        <p class="text">WELCOME IN THE BEST ROASTED COFFEE SPOT | CHECK OUR WEB STORE <i class="fas fa-chevron-right"></i>
         </p>
     </section>
     <header class="header">
@@ -123,7 +123,7 @@
                     <a class="nav-link" th:href="@{/payments/shopping-cart}">Shopping cart</a>
                 </li>
                 <li class="nav-item" sec:authorize="isAuthenticated()">
-                    <a class="nav-link" th:href="@{/auth/my-profile}">My profile</a>
+                    <a class="nav-link" th:href="@{/auth/user-profile}">My profile</a>
                 </li>
 
                 <li class="nav-item">
@@ -174,8 +174,8 @@
             </ul>
         </div>
         <div class="btn-header">
-            <a class="btn-red btn-transparent distance btn-header-red btn-transp btn-media">ORDER AHEAD</a>
-            <a th:href="@{/shopping-cart}"><i class="transp-c fas fa-shopping-bag distance" sec:authorize="isAuthenticated()"></i></a>
+            <a th:href="@{/products}" class="btn-red btn-transparent distance btn-header-red btn-transp btn-media">ORDER AHEAD</a>
+            <a th:href="@{/payments/shopping-cart}"><i class="transp-c fas fa-shopping-bag distance" sec:authorize="isAuthenticated()"></i></a>
             <a th:href="@{/auth/user-profile}"> <i class="transp far fa-user distance" sec:authorize="isAuthenticated()"></i> </a>
         </div>
     </header>

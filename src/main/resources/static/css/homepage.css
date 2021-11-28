@@ -231,6 +231,10 @@ video {
     background: white;
 }
 
+.navigation {
+    margin-left: 80px
+}
+
 @media all and (max-width: 680px) {
     .video-text {
         line-height: 80px;

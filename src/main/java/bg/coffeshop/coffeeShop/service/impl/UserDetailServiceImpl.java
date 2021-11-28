@@ -32,7 +32,6 @@ public class UserDetailServiceImpl implements UserDetailsService {
                 .findByEmail(email)
                 .orElseThrow(() -> new UsernameNotFoundException("The user was not found!"));
 
-        System.out.println("asd");
         UserDetails mappedUser = map(user);
 
         return mappedUser;

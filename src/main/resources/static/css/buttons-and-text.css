@@ -50,11 +50,11 @@ font-face {
     text-align: center;
 }
 
-.brown{
+.brown {
     color: #4D3127;
 }
 
-.btn-header{
+.btn-header {
     cursor: pointer;
 }
 
@@ -85,14 +85,14 @@ font-face {
     margin-top: 25px;
 }
 
-.light-brown{
+.light-brown {
     border-radius: 0;
     border: 2px solid #AF957D;
     color: white;
     background: #AF957D;
 }
 
-.light-brown:hover{
+.light-brown:hover {
     color: #AF957D;
     background: white;
 }
@@ -101,29 +101,41 @@ font-face {
     color: #9E9C9C;
 }
 
-.details-btn{
+.details-btn {
     font-size: 14px;
     margin: 20px 100px;
 }
 
-.btn-transp{
+.btn-transp {
     background-color: transparent;
 }
 
-.light-brown-text{
+.light-brown-text {
     font-family: Teko, sans-serif;
     font-weight: 400;
     font-size: 24px;
     color: #AF957D;
 }
 
-.light-grey{
+.light-grey {
     color: #9E9C9C;
 }
 
-.right-arrow{
+.right-arrow {
     visibility: hidden;
 }
 
+.btn-cancel-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.btn-cancel-wrapper > a {
+    width: 146px;
+    margin-right: 5px;
+}
 
 

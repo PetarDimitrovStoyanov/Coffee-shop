@@ -69,13 +69,20 @@ public class UserController {
         return "location-three";
     }
 
-    @GetMapping("/shopping-cart")
+   /* @GetMapping("/shopping-cart")
     public String cart() {
         return "shopping-cart";
     }
 
+    @PostMapping("/shopping-cart")
+    public String cartPay(ShoppingCart shoppingCart) {
+        return "redirect:/deliveries/delivery-details";
+    }*/
+
     @GetMapping("/user-profile")
-    public String profile() {
+    public String profile(ShoppingCart shoppingCart, Model model) {
+        model.addAttribute("shoppingCart", shoppingCart);
+
         return "user-profile";
     }
 
@@ -88,6 +95,11 @@ public class UserController {
 
     @PostMapping("/order-it/{id}")
     public String addToBasket(ProductServiceModel productServiceModel, @PathVariable Long id) {
+
+        if (productServiceModel.getPiece() == null || productServiceModel.getPiece() <= 0) {
+            return String.format("redirect:/order-it/%s", id);
+        }
+
         Product product = this.modelMapper.map(this.productService.findById(id), Product.class);
 
         ShoppingCartEntity entity = new ShoppingCartEntity();
@@ -95,12 +107,28 @@ public class UserController {
         entity.setPrice(product.getPrice());
         entity.setProduct(product);
 
+        boolean isPresented = false;
+        ShoppingCartEntity shoppingCartEntity = null;
+        for (ShoppingCartEntity item : shoppingCart.getItems()) {
+            if (item.getProduct().getId() == id) {
+                isPresented = true;
+                shoppingCartEntity = item;
+                break;
+            }
+        }
+
+        if (isPresented && shoppingCartEntity != null) {
+            shoppingCartEntity.setPiece(shoppingCartEntity.getPiece() + entity.getPiece());
+            return "redirect:/products";
+        }
+
         this.shoppingCart.getItems().add(entity);
         return "redirect:/products";
     }
 
     @ModelAttribute
     private ProductBasketBindingModel productBasketBindingModel() {
+        //TODO: check whether to delete
         return new ProductBasketBindingModel();
     }
 
@@ -108,6 +136,5 @@ public class UserController {
     private ProductServiceModel productServiceModel() {
         return new ProductServiceModel();
     }
-
 
 }
