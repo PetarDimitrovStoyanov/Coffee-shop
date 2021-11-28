@@ -34,7 +34,7 @@
     <p class="text video-text">COFFEE <br>UNPLUGGED</p>
 
     <div class="central-div see-more media-hide media-hide-nine">
-        <button class="see-more-btn" id="see-more">SEE MORE</button>
+        <a th:href="@{/moonmilk}" style="text-decoration: none;" class="see-more-btn" id="see-more">SEE MORE</a>
         <i class="fas fa-chevron-down media-hide-nine"></i>
     </div>
 </div>
@@ -108,7 +108,7 @@
 <section class="story">
     <div class="wrapper-story-img"><img src="../images/about/vector-moonmilk.png" alt=""></div>
     <h2 class="text brown">CREAMY, DREAMY MOON MILK®</h2>
-    <p class="center grey">What is <span class="underline" id="moonMilk">Moon Milk?</span></p>
+    <p class="center grey">What is <a th:href="@{/moonmilk}" class="underline" id="moonMilk">Moon Milk?</a></p>
     <p class="center grey">It’s Summer Moon’s signature sweet cream.
         The formulation of Moon Milk is a story of midnight alchemy. <br>
         Under a summer moon, late into the night, we landed on our legendary creamer. <br>
@@ -119,7 +119,7 @@
         <div class="img-one"><img src="../images/about/coffee-one.jpg" alt=""></div>
         <div class="img-two"><img src="../images/about/coffee-two.jpg" alt=""></div>
     </div>
-    <button class="btn-red btn-header-red brn-move-milk">FIND YOUR SWEET SPOT</button>
+    <a th:href="@{/location-one}" class="btn-red btn-header-red brn-move-milk">FIND YOUR SWEET SPOT</a>
 </section>
 
 <section class="story" id="story">

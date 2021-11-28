@@ -11,6 +11,7 @@ public class ProductViewModel {
     private BigDecimal price;
     private String type;
     private String picture;
+    private Integer piece;
     private List<Order> orders;
 
     public ProductViewModel() {
@@ -62,5 +63,13 @@ public class ProductViewModel {
 
     public void setOrders(List<Order> orders) {
         this.orders = orders;
+    }
+
+    public Integer getPiece() {
+        return piece;
+    }
+
+    public void setPiece(Integer piece) {
+        this.piece = piece;
     }
 }

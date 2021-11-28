@@ -10,7 +10,7 @@
     <link rel="stylesheet" th:href="@{/css/style.css}">
     <link rel="stylesheet" th:href="@{/css/footer-and-header.css}">
     <link rel="stylesheet" th:href="@{/css/buttons-and-text.css}">
-    <link rel="stylesheet" th:href="@{/css/all-userEntities.css}">
+    <link rel="stylesheet" th:href="@{/css/all-users.css}">
     <link rel="stylesheet" th:href="@{https://use.fontawesome.com/releases/v5.0.7/css/all.css}">
     <title>All userEntities</title>
 </head>
@@ -19,12 +19,11 @@
 
 <section class="middle-content">
     <div class="search">
-        <form class="form-inline">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <form th:action="@{/admin/all-users}" th:method="post" class="form-inline">
+            <input th:name="text" name="text" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
         </form>
     </div>
-
 
     <div class="container mt-3 mb-4">
         <div class="col-lg-9 mt-4 mt-lg-0">
@@ -34,26 +33,25 @@
                         <table class="table manage-candidates-top mb-0">
                             <thead>
                             <tr>
-                                <th>User's name</th>
+                                <th>User's information</th>
                                 <th class="text-center">Role</th>
-                                <th class="action text-right">Admin</th>
+                                <th class="action text-right">New role</th>
                             </tr>
                             </thead>
                             <tbody>
-                            <tr class="userEntities-list">
+                            <tr class="userEntities-list" th:each="u : *{users}">
                                 <td class="title">
-
                                     <div class="candidate-list-details">
                                         <div class="candidate-list-info">
                                             <div class="candidate-list-title">
-                                                <h5 class="mb-0"><a href="#">Nichole Haynes</a></h5>
+                                                <h5 class="mb-0"><p th:text="*{u.username}"></p></h5>
                                             </div>
                                             <div class="candidate-list-option">
                                                 <ul class="list-unstyled">
-                                                    <li><i class="fas fa-envelope-open"></i>some@email.com</li>
-                                                    <li><i class="fas fa-map-marker-alt pr-1"></i>Botchergate, Carlisle
+                                                    <li th:text="*{u.email}"><i class="fas fa-envelope-open"></i></li>
+                                                    <li th:text="*{u.gender}"><i class="fas fa-venus-mars"></i></li>
+                                                    <li th:text="*{u.phoneNumber}"><i class="fas fa-mobile-alt"></i>
                                                     </li>
-                                                    <li><i class="fas fa-mobile-alt"></i>+359 888 888 888</li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -61,175 +59,20 @@
                                 </td>
                                 <div class="test">
                                     <td class="candidate-list-favourite-time text-center">
-                                        <span class="candidate-list-time order-1">User / Administrator</span>
+                                        <span class="candidate-list-time order-1" th:text="*{u.getRole().name}"></span>
                                     </td>
                                     <td>
-                                        <ul class="list-unstyled mb-0 d-flex justify-content-end">
-                                            <div class="form-check form-switch">
-                                                <input class="form-check-input" type="checkbox" role="switch">
-                                            </div>
-                                            <li><a href="#" class="text-danger" data-toggle="tooltip" title=""
-                                                   data-original-title="Delete"><i class="far fa-trash-alt"></i></a>
-                                            </li>
-                                        </ul>
-                                    </td>
-                                </div>
-
-                            </tr>
-                            <tr class="userEntities-list">
-                                <td class="title">
-
-                                    <div class="candidate-list-details">
-                                        <div class="candidate-list-info">
-                                            <div class="candidate-list-title">
-                                                <h5 class="mb-0"><a href="#">Nichole Haynes</a></h5>
-                                            </div>
-                                            <div class="candidate-list-option">
-                                                <ul class="list-unstyled">
-                                                    <li><i class="fas fa-envelope-open"></i>some@email.com</li>
-                                                    <li><i class="fas fa-map-marker-alt pr-1"></i>Botchergate, Carlisle
-                                                    </li>
-                                                    <li><i class="fas fa-mobile-alt"></i>+359 888 888 888</li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </td>
-                                <div class="test">
-                                    <td class="candidate-list-favourite-time text-center">
-                                        <span class="candidate-list-time order-1">User / Administrator</span>
+                                        <a th:href="@{/admin/change/{id}(id=*{u.id})}">Change</a>
                                     </td>
                                     <td>
-                                        <ul class="list-unstyled mb-0 d-flex justify-content-end">
-                                            <div class="form-check form-switch">
-                                                <input class="form-check-input" type="checkbox" role="switch">
-                                            </div>
-                                            <li><a href="#" class="text-danger" data-toggle="tooltip" title=""
-                                                   data-original-title="Delete"><i class="far fa-trash-alt"></i></a>
-                                            </li>
-                                        </ul>
-                                    </td>
-                                </div>
-                            </tr>
-                            <tr class="userEntities-list">
-                                <td class="title">
-
-                                    <div class="candidate-list-details">
-                                        <div class="candidate-list-info">
-                                            <div class="candidate-list-title">
-                                                <h5 class="mb-0"><a href="#">Nichole Haynes</a></h5>
-                                            </div>
-                                            <div class="candidate-list-option">
-                                                <ul class="list-unstyled">
-                                                    <li><i class="fas fa-envelope-open"></i>some@email.com</li>
-                                                    <li><i class="fas fa-map-marker-alt pr-1"></i>Botchergate, Carlisle
-                                                    </li>
-                                                    <li><i class="fas fa-mobile-alt"></i>+359 888 888 888</li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </td>
-                                <div class="test">
-                                    <td class="candidate-list-favourite-time text-center">
-                                        <span class="candidate-list-time order-1">User / Administrator</span>
-                                    </td>
-                                    <td>
-                                        <ul class="list-unstyled mb-0 d-flex justify-content-end">
-                                            <div class="form-check form-switch">
-                                                <input class="form-check-input" type="checkbox" role="switch">
-                                            </div>
-                                            <li><a href="#" class="text-danger" data-toggle="tooltip" title=""
-                                                   data-original-title="Delete"><i class="far fa-trash-alt"></i></a>
-                                            </li>
-                                        </ul>
-                                    </td>
-                                </div>
-                            </tr>
-                            <tr class="userEntities-list">
-                                <td class="title">
-
-                                    <div class="candidate-list-details">
-                                        <div class="candidate-list-info">
-                                            <div class="candidate-list-title">
-                                                <h5 class="mb-0"><a href="#">Nichole Haynes</a></h5>
-                                            </div>
-                                            <div class="candidate-list-option">
-                                                <ul class="list-unstyled">
-                                                    <li><i class="fas fa-envelope-open"></i>some@email.com</li>
-                                                    <li><i class="fas fa-map-marker-alt pr-1"></i>Botchergate, Carlisle
-                                                    </li>
-                                                    <li><i class="fas fa-mobile-alt"></i>+359 888 888 888</li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </td>
-                                <div class="test">
-                                    <td class="candidate-list-favourite-time text-center">
-                                        <span class="candidate-list-time order-1">User / Administrator</span>
-                                    </td>
-                                    <td>
-                                        <ul class="list-unstyled mb-0 d-flex justify-content-end">
-                                            <div class="form-check form-switch">
-                                                <input class="form-check-input" type="checkbox" role="switch">
-                                            </div>
-                                            <li><a href="#" class="text-danger" data-toggle="tooltip" title=""
-                                                   data-original-title="Delete"><i class="far fa-trash-alt"></i></a>
-                                            </li>
-                                        </ul>
-                                    </td>
-                                </div>
-                            </tr>
-                            <tr class="userEntities-list">
-                                <td class="title">
-
-                                    <div class="candidate-list-details">
-                                        <div class="candidate-list-info">
-                                            <div class="candidate-list-title">
-                                                <h5 class="mb-0"><a href="#">Nichole Haynes</a></h5>
-                                            </div>
-                                            <div class="candidate-list-option">
-                                                <ul class="list-unstyled">
-                                                    <li><i class="fas fa-envelope-open"></i>some@email.com</li>
-                                                    <li><i class="fas fa-map-marker-alt pr-1"></i>Botchergate, Carlisle
-                                                    </li>
-                                                    <li><i class="fas fa-mobile-alt"></i>+359 888 888 888</li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </td>
-                                <div class="test">
-                                    <td class="candidate-list-favourite-time text-center">
-                                        <span class="candidate-list-time order-1">User / Administrator</span>
-                                    </td>
-                                    <td>
-                                        <ul class="list-unstyled mb-0 d-flex justify-content-end">
-                                            <div class="form-check form-switch">
-                                                <input class="form-check-input" type="checkbox" role="switch">
-                                            </div>
-                                            <li><a href="#" class="text-danger" data-toggle="tooltip" title=""
-                                                   data-original-title="Delete"><i class="far fa-trash-alt"></i></a>
-                                            </li>
-                                        </ul>
+                                        <li><a th:href="@{/admin/delete/{id}(id=*{u.id})}" class="text-danger" data-toggle="tooltip" title=""
+                                               data-original-title="Delete">Delete</a>
+                                        </li>
                                     </td>
                                 </div>
                             </tr>
                             </tbody>
                         </table>
-                        <div class="text-center mt-3 mt-sm-3">
-                            <ul class="pagination justify-content-center mb-0">
-                                <li class="page-item disabled"><span class="page-link">Prev</span></li>
-                                <li class="page-item active" aria-current="page"><span class="page-link">1 </span> <span
-                                        class="sr-only">(current)</span></li>
-                                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                <li class="page-item"><a class="page-link" href="#">...</a></li>
-                                <li class="page-item"><a class="page-link" href="#">25</a></li>
-                                <li class="page-item"><a class="page-link" href="#">Next</a></li>
-                            </ul>
-                        </div>
                     </div>
                 </div>
             </div>

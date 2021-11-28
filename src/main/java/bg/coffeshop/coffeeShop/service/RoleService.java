@@ -6,5 +6,5 @@ import bg.coffeshop.coffeeShop.model.entity.Role;
 public interface RoleService {
     void initRoles();
 
-    Role findRoleByName(RoleEnum name);
+    Role findRoleByName(RoleEnum name) throws Exception;
 }

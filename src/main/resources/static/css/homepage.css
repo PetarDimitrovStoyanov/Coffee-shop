@@ -231,6 +231,14 @@ video {
     background: white;
 }
 
+.navigation {
+    margin-left: 80px
+}
+
+body > div:nth-child(8) > footer > div > article.text-wrapper{
+    margin-left:200px
+}
+
 @media all and (max-width: 680px) {
     .video-text {
         line-height: 80px;
@@ -369,5 +377,9 @@ video {
 
     .video-text {
         font-size: 80px;
+    }
+
+    body > div:nth-child(8) > footer > div > article.text-wrapper{
+        margin-left:0
     }
 }

@@ -185,7 +185,7 @@
 }
 
 .navigation {
-    padding-top: 25px;
+    padding-top: 18px;
 }
 
 .fix-line {
@@ -196,6 +196,19 @@
     width: fit-content;
     font-size: 1em;
 }
+
+#header > div.navbar > ul > li:nth-child(5) > a {
+    color: #4D3127;
+}
+
+#header > div.navbar > ul > li:nth-child(5) > a:hover {
+    color: #D2102A;
+}
+
+.navigation{
+    margin-right: 120px;
+}
+
 
 @media all and (max-width: 750px) {
     .video-text {

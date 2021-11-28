@@ -1,7 +1,5 @@
 package bg.coffeshop.coffeeShop.model.entity;
 
-import org.hibernate.annotations.GenericGenerator;
-
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;

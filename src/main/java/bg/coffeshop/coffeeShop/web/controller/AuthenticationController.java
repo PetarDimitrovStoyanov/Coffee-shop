@@ -1,13 +1,8 @@
-package bg.coffeshop.coffeeShop.web;
+package bg.coffeshop.coffeeShop.web.controller;
 
-import bg.coffeshop.coffeeShop.constant.RoleEnum;
+import bg.coffeshop.coffeeShop.model.service.UserRegistrationServiceModel;
 import bg.coffeshop.coffeeShop.model.binding.UserRegisterBindingModel;
-import bg.coffeshop.coffeeShop.model.entity.Role;
-import bg.coffeshop.coffeeShop.model.entity.UserEntity;
-import bg.coffeshop.coffeeShop.repository.RoleRepository;
 import bg.coffeshop.coffeeShop.service.UserService;
-import org.modelmapper.ModelMapper;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,24 +12,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
-import java.util.ArrayList;
-import java.util.List;
-
 
 @Controller
 @RequestMapping("/auth")
 public class AuthenticationController {
 
     private final UserService userService;
-    private final ModelMapper modelMapper;
-    private final RoleRepository roleService;
-    private final PasswordEncoder passwordEncoder;
 
-    public AuthenticationController(UserService userService, ModelMapper mapper, RoleRepository roleService, PasswordEncoder passwordEncoder) {
+    public AuthenticationController(UserService userService) {
         this.userService = userService;
-        this.modelMapper = mapper;
-        this.roleService = roleService;
-        this.passwordEncoder = passwordEncoder;
     }
 
     @GetMapping("/login")
@@ -49,7 +35,7 @@ public class AuthenticationController {
 
     @PostMapping("/register")
     public String registerConfirm(@Valid UserRegisterBindingModel userRegisterBindingModel,
-                                  BindingResult bindingResult, RedirectAttributes redirectAttributes) {
+                                  BindingResult bindingResult, RedirectAttributes redirectAttributes) throws Exception {
         if (bindingResult.hasErrors()
                 || !userRegisterBindingModel.getPassword().equals(userRegisterBindingModel.getConfirmPassword())
                 || this.userService.isUserExists(userRegisterBindingModel)) {
@@ -58,18 +44,10 @@ public class AuthenticationController {
 
             return "register";
         }
-        UserEntity userEntity = this.modelMapper.map(userRegisterBindingModel, UserEntity.class);
 
-
-        List<Role> roles = new ArrayList<>();
-        Role role = this.roleService.findRoleByName(RoleEnum.USER);
-        roles.add(role);
-
-        userEntity.setRoles(roles);
-        userEntity.setOrders(new ArrayList<>());
-        userEntity.setPassword(passwordEncoder.encode(userEntity.getPassword()));
-
-        this.userService.saveInDB(userEntity);
+        UserRegistrationServiceModel userRegistrationServiceModel =
+                this.userService.getUserRegistrationServiceModel(userRegisterBindingModel);
+        this.userService.register(userRegistrationServiceModel);
 
         return "redirect:login";
     }

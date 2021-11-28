@@ -10,7 +10,8 @@
 <div th:fragment="headerNav">
 
     <section class="message-section">
-        <p class="text">ALL ORDERS $35+ HAVE A DISCOUNT | IMPORTANT SHIPPING NOTICE <i class="fas fa-chevron-right"></i>
+        <p class="text">WELCOME IN THE BEST ROASTED COFFEE SPOT | CHECK OUR WEB STORE <i
+                class="fas fa-chevron-right"></i>
         </p>
     </section>
 
@@ -33,19 +34,17 @@
                     <a class="nav-link" th:href="@{/admin/admin}">Admin</a>
                 </li>
                 <li class="nav-item" sec:authorize="isAuthenticated()">
-                    <a class="nav-link" th:href="@{/payments/shopping-cart.html}">Shopping cart</a>
+                    <a class="nav-link" th:href="@{/payments/shopping-cart}">Shopping cart</a>
+                </li>
+                <li class="nav-item" sec:authorize="!isAuthenticated()">
+                    <a class="nav-link" th:href="@{/auth/login}">Login</a>
+                </li>
+                <li class="nav-item" sec:authorize="!isAuthenticated()">
+                    <a class="nav-link" th:href="@{/auth/register}">Register</a>
                 </li>
                 <li class="nav-item" sec:authorize="isAuthenticated()">
-                    <a class="nav-link" th:href="@{/auth/user-profile}">My profile</a>
+                    <a onclick="document.getElementById('myform4').submit();" class="nav-link a-logout">Logout</a>
                 </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" th:href="@{/auth/login}" sec:authorize="!isAuthenticated()">Login</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" th:href="@{/auth/register}" sec:authorize="!isAuthenticated()">Register</a>
-                </li>
-
                 <li class="nav-item">
                     <a class="nav-link" href="#">Х</a>
                 </li>
@@ -55,6 +54,7 @@
                 <span class="bar"></span>
                 <span class="bar"></span>
             </div>
+            <form id="myform4" style="color: transparent" th:action="@{/logout}" th:method="post"></form>
         </div>
 
         <div class="navigation">
@@ -68,37 +68,38 @@
                 <li class="li-nav">
                     <a class="nav-a transp" th:href="@{/location-one}">Contact</a>
                 </li>
-
-                <th:block sec:authorize="hasRole('ROLE_ADMINISTRATOR')">
-                    <li>
-                        <a class="nav-a transp" th:href="@{/admin/admin}">Admin</a>
-                    </li>
-                </th:block>
-
-                <th:block sec:authorize="!isAuthenticated()">
-                    <li class="li-nav">
-                        <a class="nav-a transp" th:href="@{/auth/login}">Login</a>
-                    </li>
-                    <li class="li-nav">
-                        <a class="nav-a transp" th:href="@{/auth/register}">Register</a>
-                    </li>
-                </th:block>
-
+                <li class="li-nav" sec:authorize="hasRole('ROLE_ADMINISTRATOR')">
+                    <a class="nav-a transp" th:href="@{/admin/admin}">Admin</a>
+                </li>
+                <li class="li-nav" sec:authorize="isAuthenticated()">
+                    <a class="nav-a transp" onclick="document.getElementById('myform5').submit();">Logout</a>
+                </li>
+                <li class="li-nav" sec:authorize="!isAuthenticated()">
+                    <a class="nav-a transp" th:href="@{/auth/login}">Login</a>
+                </li>
+                <li class="li-nav" sec:authorize="!isAuthenticated()">
+                    <a class="nav-a transp" th:href="@{/auth/register}">Register</a>
+                </li>
+                <form id="myform5" style="display: none" th:action="@{/logout}" th:method="post"></form>
             </ul>
         </div>
         <div class="btn-header">
-            <a href="" class="btn-red btn-transparent distance btn-header-red btn-transp btn-media">ORDER AHEAD<i
-                    class="fas fa-chevron-right right-arrow btn-media" style="margin-left: 5px"></i></a>
-            <a th:href="@{/shopping-cart}"><i class="transp fas fa-shopping-bag distance" sec:authorize="isAuthenticated()"></i></a>
-            <a th:href="@{/auth/user-profile}"> <i class="transp far fa-user distance" sec:authorize="isAuthenticated()"></i> </a>
+            <a th:href="@{/products}" class="btn-red btn-transparent distance btn-header-red btn-transp btn-media">ORDER
+                AHEAD<i
+                        class="fas fa-chevron-right right-arrow btn-media" style="margin-left: 5px"></i></a>
+            <a th:href="@{/payments/shopping-cart}"><i class="transp fas fa-shopping-bag distance"
+                                                       sec:authorize="isAuthenticated()"></i></a></a>
         </div>
+        <form id="myform3" style="color: transparent" th:action="@{/logout}" th:method="post"></form>
     </header>
 </div>
 
 
 <div th:fragment="headerNavTwo">
+    <form id="myform6" style="color: transparent" th:action="@{/logout}" th:method="post"></form>
     <section class="message-section">
-        <p class="text">ALL ORDERS $35+ HAVE A DISCOUNT | IMPORTANT SHIPPING NOTICE <i class="fas fa-chevron-right"></i>
+        <p class="text">WELCOME IN THE BEST ROASTED COFFEE SPOT | CHECK OUR WEB STORE <i
+                class="fas fa-chevron-right"></i>
         </p>
     </section>
     <header class="header">
@@ -122,17 +123,15 @@
                 <li class="nav-item" sec:authorize="isAuthenticated()">
                     <a class="nav-link" th:href="@{/payments/shopping-cart}">Shopping cart</a>
                 </li>
+                <li class="nav-item" sec:authorize="!isAuthenticated()">
+                    <a class="nav-link" th:href="@{/auth/login}">Login</a>
+                </li>
+                <li class="nav-item" sec:authorize="!isAuthenticated()">
+                    <a class="nav-link" th:href="@{/auth/register}">Register</a>
+                </li>
                 <li class="nav-item" sec:authorize="isAuthenticated()">
-                    <a class="nav-link" th:href="@{/auth/my-profile}">My profile</a>
+                    <a onclick="document.getElementById('myform6').submit();" class="nav-link a-logout" th:href="@{/logout}">Logout</a>
                 </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" th:href="@{/auth/login}" sec:authorize="!isAuthenticated()">Login</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" th:href="@{/auth/register}" sec:authorize="!isAuthenticated()">Register</a>
-                </li>
-
                 <li class="nav-item">
                     <a class="nav-link" href="#">Х</a>
                 </li>
@@ -155,29 +154,30 @@
                 <li class="li-nav">
                     <a class="nav-a-c transp-c" th:href="@{/location-one}">CONTACT</a>
                 </li>
+                <li sec:authorize="hasRole('ROLE_ADMINISTRATOR')">
+                    <a class="nav-a-c transp-c" th:href="@{/admin/admin}">ADMIN</a>
+                </li>
+                <li class="li-nav" sec:authorize="isAuthenticated()">
+                    <a onclick="document.getElementById('myform2').submit();"
+                       class="nav-a transp-c a-logout">Logout</a>
+                </li>
 
-                <th:block sec:authorize="hasRole('ROLE_ADMINISTRATOR')">
-                    <li>
-                        <a class="nav-a-c transp-c" th:href="@{/admin/admin}">ADMIN</a>
-                    </li>
-                </th:block>
-
-                <th:block sec:authorize="!isAuthenticated()">
-                    <li class="li-nav">
-                        <a class="nav-a transp-c" th:href="@{/auth/login}">Login</a>
-                    </li>
-                    <li class="li-nav">
-                        <a class="nav-a transp-c" th:href="@{/auth/register}">Register</a>
-                    </li>
-                </th:block>
+                <li class="li-nav" sec:authorize="!isAuthenticated()">
+                    <a class="nav-a transp-c" th:href="@{/auth/login}">LOGIN</a>
+                </li>
+                <li class="li-nav" sec:authorize="!isAuthenticated()">
+                    <a class="nav-a transp-c" th:href="@{/auth/register}">REGISTER</a>
+                </li>
 
             </ul>
         </div>
         <div class="btn-header">
-            <a class="btn-red btn-transparent distance btn-header-red btn-transp btn-media">ORDER AHEAD</a>
-            <a th:href="@{/shopping-cart}"><i class="transp-c fas fa-shopping-bag distance" sec:authorize="isAuthenticated()"></i></a>
-            <a th:href="@{/auth/user-profile}"> <i class="transp far fa-user distance" sec:authorize="isAuthenticated()"></i> </a>
+            <a th:href="@{/products}" class="btn-red btn-transparent distance btn-header-red btn-transp btn-media">ORDER
+                AHEAD</a>
+            <a th:href="@{/payments/shopping-cart}"><i class="transp-c fas fa-shopping-bag distance"
+                                                       sec:authorize="isAuthenticated()"></i></a>
         </div>
+        <form id="myform2" style="color: transparent" th:action="@{/logout}" th:method="post"></form>
     </header>
 </div>
 
@@ -237,7 +237,8 @@
                         <div>
                             <a class="text gold footer-p" th:href="@{/location-one}">CONTACTS</a>
                             <a class="text gold footer-p" th:href="@{/products}">PRODUCTS</a>
-                            <a class="text gold footer-p" th:href="@{/auth/user-profile}">MY PROFILE</a>
+                            <a onclick="document.getElementById('myform').submit();"
+                               class="text gold footer-p a-logout">LOGOUT</a>
                         </div>
                     </article>
                 </th:block>
@@ -248,7 +249,9 @@
             </div>
             <p class="footer-text">Copyright © 2021, Spring advanced project - SoftUni</p>
         </footer>
+        <form id="myform" style="color: transparent" th:action="@{/logout}" th:method="post"></form>
     </div>
 </th:block>
+
 </body>
 </html>

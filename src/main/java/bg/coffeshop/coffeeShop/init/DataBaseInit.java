@@ -1,6 +1,5 @@
 package bg.coffeshop.coffeeShop.init;
 
-import bg.coffeshop.coffeeShop.service.ProductService;
 import bg.coffeshop.coffeeShop.service.RoleService;
 import bg.coffeshop.coffeeShop.service.UserService;
 import org.springframework.boot.CommandLineRunner;
@@ -13,8 +12,8 @@ public class DataBaseInit implements CommandLineRunner {
     private final RoleService roleService;
 
     public DataBaseInit(UserService userService, RoleService roleService) {
-        this.userService = userService;
         this.roleService = roleService;
+        this.userService = userService;
     }
 
     @Override

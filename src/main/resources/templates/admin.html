@@ -22,7 +22,7 @@
             <a th:href="@{/admin/add-product}" class="btn btn-red btn-header-red">ADD PRODUCT</a>
         </div>
         <div class="btn-wrapper margin-top-btn">
-            <a th:href="@{/admin/all-userEntities}" class="btn btn-red btn-header-red">ALL USERS</a>
+            <a th:href="@{/admin/all-users}" class="btn btn-red btn-header-red">ALL USERS</a>
         </div>
     </div>
 </section>
@@ -33,50 +33,31 @@
 </div>
 
 <article class="statistic-content">
-    <table id="my-table" class="table table-hover">
+    <table id="my-table" class="table table-hover" th:object="${orders}">
         <thead>
         <tr>
-            <th scope="col">#</th>
-            <th scope="col">TotalAmount</th>
+            <th scope="col">Id</th>
+            <th scope="col">Total amount in USD</th>
             <th scope="col">Date</th>
             <th scope="col">Payment method</th>
             <th scope="col">Username</th>
+            <th scope="col">Delivery</th>
         </tr>
         </thead>
         <tbody>
-        <tr>
-            <th scope="row">1</th>
-            <td>125.22</td>
-            <td>26.12.2020</td>
-            <td>Card</td>
-            <td>Nakata</td>
-        </tr>
-        <tr>
-            <th scope="row">2</th>
-            <td>125.22</td>
-            <td>26.12.2020</td>
-            <td>Cash</td>
-            <td>Icaka</td>
-        </tr>
-        <tr>
-            <th scope="row">3</th>
-            <td>105.00</td>
-            <td>26.12.2020</td>
-            <td>Card</td>
-            <td>Nakata</td>
-        </tr>
-        <tr>
-            <th scope="row">4</th>
-            <td>1450.50</td>
-            <td>28.04.2020</td>
-            <td>Card</td>
-            <td>Gencho</td>
+        <tr th:each="o : ${orders}">
+            <th scope="row" th:text="${o.id}"></th>
+            <td th:text="${o.totalValue}"></td>
+            <td th:text="${o.date}"></td>
+            <td th:text="${o.payment}"></td>
+            <td th:text="${o.client}"></td>
+            <td th:text="${o.delivery}"></td>
         </tr>
         </tbody>
         <tfoot>
         <tr>
             <th></th>
-            <th>1805.94</th>
+            <th></th>
             <th></th>
             <th></th>
             <th></th>
@@ -94,37 +75,17 @@
     <table id="my-table2" class="table table-hover">
         <thead>
         <tr>
-            <th scope="col">#</th>
-            <th scope="col">Number of visitations</th>
+            <th scope="col">Id</th>
+            <th scope="col">IP Address</th>
             <th scope="col">Date</th>
         </tr>
         </thead>
-        <tbody>
-        <tr>
-            <th scope="row">1</th>
-            <td>155</td>
-            <td>26.12.2020</td>
-        </tr>
-        <tr>
-            <th scope="row">2</th>
-            <td>33</td>
-            <td>26.12.2020</td>
-        </tr>
-        <tr>
-            <th scope="row">3</th>
-            <td>105</td>
-            <td>26.12.2020</td>
-        </tr>
-        <tr>
-            <th scope="row">4</th>
-            <td>13</td>
-            <td>28.04.2020</td>
-        </tr>
+        <tbody id="statistic-tBody">
         </tbody>
         <tfoot>
         <tr>
             <th></th>
-            <th>306</th>
+            <th></th>
             <th></th>
         </tr>
         </tfoot>
@@ -132,6 +93,7 @@
 </article>
 
 <div th:replace="fragments/common::footer"></div>
+<script th:src="@{../js/statistic.js}"></script>
 <script th:src="@{//code.jquery.com/jquery-1.11.3.min.js}"></script>
 <script th:src="@{/js/Simple-jQuery-Dropdown-Table-Filter-Plugin-ddtf-js/ddtf.js}"></script>
 <script>
@@ -139,5 +101,6 @@
     $('#my-table2').ddTableFilter();
 </script>
 <script th:src="@{../js/media-header.js}"></script>
+
 </body>
 </html>

@@ -10,7 +10,7 @@ element.addEventListener("mouseout", (e) => {
     e.preventDefault();
     let a = document.getElementsByClassName('transp');
     Array.from(a).forEach(e => e.style.color = "white");
-    element.style.background = "transparent"
+    element.style.background = "transparent";
 })
 
 element.addEventListener("mouseover", (e) => {
@@ -60,5 +60,6 @@ admin.addEventListener("click", () => {
    location.href="https://www.geeksforgeeks.org";
    console.log("hi")
 });*/
+
 
 

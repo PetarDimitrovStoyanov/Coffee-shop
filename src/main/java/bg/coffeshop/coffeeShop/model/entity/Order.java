@@ -1,33 +1,34 @@
 package bg.coffeshop.coffeeShop.model.entity;
 
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
+
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "orders")
 public class Order extends BaseEntity {
-    private List<Product> products;
+    private Set<Product> products;
     private Payment payment;
     private Delivery delivery;
     private LocalDate date;
     private BigDecimal totalValue;
     private UserEntity client;
-    private Integer discount;
 
     public Order() {
     }
 
-    @ManyToMany()
-    @JoinTable(name = "orders_products",
-            joinColumns = @JoinColumn(name = "order_id", referencedColumnName = "id"),
-            inverseJoinColumns = @JoinColumn(name = "product_id", referencedColumnName = "id"))
-    public List<Product> getProducts() {
+    @OneToMany(mappedBy="order", fetch=FetchType.EAGER)
+    @Fetch(value = FetchMode.SUBSELECT)
+    public Set<Product> getProducts() {
         return products;
     }
 
-    public void setProducts(List<Product> products) {
+    public void setProducts(Set<Product> products) {
         this.products = products;
     }
 
@@ -76,12 +77,4 @@ public class Order extends BaseEntity {
         this.client = client;
     }
 
-    @Column
-    public Integer getDiscount() {
-        return discount;
-    }
-
-    public void setDiscount(Integer discount) {
-        this.discount = discount;
-    }
 }

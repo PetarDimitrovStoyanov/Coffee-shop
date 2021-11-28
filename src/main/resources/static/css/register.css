@@ -58,6 +58,10 @@ input {
     padding-bottom: 7px;
 }
 
+.navigation{
+    margin-right: 170px;
+}
+
 
 @media all and (max-width: 1214px) {
     .message-section {

@@ -2,7 +2,7 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
     <link th:href="@{https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css}" rel="stylesheet"
           integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" th:href="@{/css/style.css}">
@@ -15,25 +15,27 @@
 <body>
 <div th:replace="fragments/common::headerNavTwo"></div>
 
-<form th:action="@{/auth/login}" th:method="post" class="register-form">
+<form th:action="@{/auth/login}" th:method="post" th:object="${loginBindingModel}" class="register-form">
     <h2>LOGIN</h2>
+
     <div>
         <label for="email" class="form-label">Email:</label>
-        <input type="text" id="email" class="form-control" name="email">
+        <input type="email" id="email" class="form-control" name="email">
     </div>
+    <p id="error-email" style="display: none; color: red">The email must contain @ symbol</p>
     <div>
         <label for="password" class="form-label">Password:</label>
         <input type="password" id="password" class="form-control" name="password">
     </div>
-    <p class="text red">Forgot your password?</p>
+    <p id="error-password" style="display: none; color: red">The password must be at least 3 symbols</p>
     <div class="center">
         <button type="submit" class="btn btn-primary btn-red margin-top">SIGN IN</button>
     </div>
-    <p class="text red margin-top-p">Create account</p>
 </form>
 
 <div th:replace="fragments/common::footer"></div>
 <script th:src="@{../js/media-header.js}"></script>
+<script th:src="@{../js/login.js}"></script>
 
 </body>
 </html>

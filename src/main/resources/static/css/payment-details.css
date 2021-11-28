@@ -160,6 +160,10 @@ input {
     margin-right: 10px;
 }
 
+.navigation{
+    margin-right: 170px;
+}
+
 @media (max-width: 650px) {
     .creditCardForm .owner,
     .creditCardForm .CVV,

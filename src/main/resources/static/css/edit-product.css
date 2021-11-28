@@ -32,6 +32,10 @@
     position: relative;
 }
 
+.navigation{
+    margin-right: 170px;
+}
+
 @media all and (max-width: 1190px ) {
     .message-section {
         display: none;

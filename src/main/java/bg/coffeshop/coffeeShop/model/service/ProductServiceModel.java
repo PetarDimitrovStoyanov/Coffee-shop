@@ -1,4 +1,4 @@
-package bg.coffeshop.coffeeShop.model.Service;
+package bg.coffeshop.coffeeShop.model.service;
 
 import bg.coffeshop.coffeeShop.model.entity.Order;
 

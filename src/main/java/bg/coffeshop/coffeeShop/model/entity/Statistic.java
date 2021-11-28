@@ -3,63 +3,33 @@ package bg.coffeshop.coffeeShop.model.entity;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
-import java.math.BigDecimal;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "statistics")
 public class Statistic extends BaseEntity {
 
-    private String type;
-    private BigDecimal turnover;
-    private Integer dealsCount;
-    private Integer peopleAndOrder;
-    private Integer visitorsCount;
+    private LocalDateTime localDateTime;
+    private String ipAddress;
 
     public Statistic() {
     }
 
-    @Column(name = "type", unique = true, nullable = false)
-    public String getType() {
-        return type;
+    @Column(nullable = false, name = "local_date_time")
+    public LocalDateTime getLocalDateTime() {
+        return localDateTime;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setLocalDateTime(LocalDateTime localDateTime) {
+        this.localDateTime = localDateTime;
     }
 
-    @Column
-    public BigDecimal getTurnover() {
-        return turnover;
+    @Column(nullable = false)
+    public String getIpAddress() {
+        return ipAddress;
     }
 
-    public void setTurnover(BigDecimal turnover) {
-        this.turnover = turnover;
-    }
-
-    @Column(name = "deals_count")
-    public Integer getDealsCount() {
-        return dealsCount;
-    }
-
-    public void setDealsCount(Integer dealsCount) {
-        this.dealsCount = dealsCount;
-    }
-
-    @Column(name = "people_and_orders")
-    public Integer getPeopleAndOrder() {
-        return peopleAndOrder;
-    }
-
-    public void setPeopleAndOrder(Integer peopleAndOrder) {
-        this.peopleAndOrder = peopleAndOrder;
-    }
-
-    @Column(name = "visitors_count")
-    public Integer getVisitorsCount() {
-        return visitorsCount;
-    }
-
-    public void setVisitorsCount(Integer visitorsCount) {
-        this.visitorsCount = visitorsCount;
+    public void setIpAddress(String ipAddress) {
+        this.ipAddress = ipAddress;
     }
 }

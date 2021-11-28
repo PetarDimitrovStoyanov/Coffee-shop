@@ -11,13 +11,23 @@ document.querySelectorAll('.nav-link').forEach(n => n.addEventListener("click", 
     navMenu.classList.remove("active");
 }));
 
-const header = document.querySelectorAll('.header');
+const header2 = document.querySelectorAll('.header')[0];
 const logo = document.querySelectorAll('.logo-three')[0];
 
-header.addEventListener("mouseover", () => {
-    logo.classList.add("brown-txt");
+header2.addEventListener("mouseover", () => {
+    try {
+        logo.classList.add("brown-txt");
+        logo.classList.add("brown-txt");
+    } catch (e){
+
+    }
 })
 
-header.addEventListener("mouseout", () => {
-    logo.classList.remove("brown-txt");
+header2.addEventListener("mouseout", () => {
+    try{
+        logo.classList.remove("brown-txt");
+    } catch (e){
+
+    }
+
 })

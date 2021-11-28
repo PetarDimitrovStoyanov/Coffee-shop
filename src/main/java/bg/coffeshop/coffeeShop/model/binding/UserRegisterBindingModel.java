@@ -1,6 +1,7 @@
 package bg.coffeshop.coffeeShop.model.binding;
 
 import bg.coffeshop.coffeeShop.constant.GenderEnum;
+import bg.coffeshop.coffeeShop.model.entity.Role;
 
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -108,4 +109,6 @@ public class UserRegisterBindingModel {
     public void setConfirmPassword(String confirmPassword) {
         this.confirmPassword = confirmPassword;
     }
+
+
 }

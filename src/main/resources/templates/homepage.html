@@ -9,6 +9,7 @@
     <link rel="stylesheet" th:href="@{/css/buttons-and-text.css}">
     <link rel="stylesheet" th:href="@{/css/homepage.css}">
     <link rel="stylesheet" th:href="@{https://use.fontawesome.com/releases/v5.0.7/css/all.css}">
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
     <title>Homepage</title>
 </head>
 <body>
@@ -31,7 +32,7 @@
     <p class="light-text">Our organic coffee beans are roasted over an open flame in a one-of-a-kind, <br>
         brick roaster. There’s nothing quite like a cup of roasted coffee.</p>
     <div class="center-div">
-        <a class="btn-red margin-top" href="">OUR COFFEES <i class="fas fa-chevron-right"></i></a>
+        <a class="btn-red margin-top" th:href="@{/products}">OUR COFFEES <i class="fas fa-chevron-right"></i></a>
     </div>
 </section>
 <section class="slide-products">

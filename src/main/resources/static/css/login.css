@@ -45,6 +45,15 @@ input {
     margin-top: 20px;
 }
 
+body > div:nth-child(1) > header > div.navigation.nav-two{
+    margin-right: 120px;
+}
+
+.navigation{
+    margin-right: 170px;
+}
+
+
 @media all and (max-width: 1214px) {
     .message-section {
         display: none;

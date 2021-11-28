@@ -3,7 +3,6 @@ package bg.coffeshop.coffeeShop.service.impl;
 import bg.coffeshop.coffeeShop.model.entity.UserEntity;
 import bg.coffeshop.coffeeShop.repository.UserEntityRepository;
 import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.Transient;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -11,10 +10,9 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-
 import javax.transaction.Transactional;
+import java.util.HashSet;
 import java.util.Set;
-import java.util.stream.Collectors;
 
 @Service
 public class UserDetailServiceImpl implements UserDetailsService {
@@ -27,26 +25,33 @@ public class UserDetailServiceImpl implements UserDetailsService {
     @Transactional
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-
-        var user = this.userEntityRepository
+        UserEntity user = this.userEntityRepository
                 .findByEmail(email)
                 .orElseThrow(() -> new UsernameNotFoundException("The user was not found!"));
 
-        System.out.println("asd");
-        UserDetails mappedUser = map(user);
+        if(user.getRole().getName().name().equalsIgnoreCase("USER")){
+            return mapUser(user);
+        } else {
+            return mapAdmin(user);
+        }
 
-        return mappedUser;
     }
-    /*UserDetails from Spring Security*/
-    private UserDetails map(UserEntity userEntity) {
-        Set<GrantedAuthority> grantedAuthorities =
-                userEntity
-                        .getRoles()
-                        .stream()
-                        .map(r -> new SimpleGrantedAuthority("ROLE_" + r.getName()))
-                        .collect(Collectors.toSet());
 
-        /*returning User from spring Security*/
+    public UserDetails mapUser(UserEntity userEntity) {
+        Set<GrantedAuthority> grantedAuthorities = new HashSet<>();
+        grantedAuthorities.add(new SimpleGrantedAuthority("ROLE_USER"));
+
+        return new User(
+                userEntity.getEmail(),
+                userEntity.getPassword(),
+                grantedAuthorities
+        );
+    }
+
+    public UserDetails mapAdmin(UserEntity userEntity) {
+        Set<GrantedAuthority> grantedAuthorities = new HashSet<>();
+        grantedAuthorities.add(new SimpleGrantedAuthority("ROLE_ADMINISTRATOR"));
+
         return new User(
                 userEntity.getEmail(),
                 userEntity.getPassword(),

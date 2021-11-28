@@ -33,6 +33,9 @@
     top:100%
 }
 
+.navigation{
+    margin-right: 170px;
+}
 
 
 @media all and (max-width: 1220px ) {

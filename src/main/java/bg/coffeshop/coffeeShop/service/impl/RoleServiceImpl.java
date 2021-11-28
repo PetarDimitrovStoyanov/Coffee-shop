@@ -30,7 +30,7 @@ public class RoleServiceImpl implements RoleService {
     }
 
     @Override
-    public Role findRoleByName(RoleEnum name) {
-        return this.roleRepository.findRoleByName(name);
+    public Role findRoleByName(RoleEnum name) throws Exception {
+        return this.roleRepository.findRoleByName(name).orElseThrow(Exception::new);
     }
 }

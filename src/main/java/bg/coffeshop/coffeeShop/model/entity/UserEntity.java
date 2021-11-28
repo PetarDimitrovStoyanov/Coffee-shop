@@ -3,7 +3,7 @@ package bg.coffeshop.coffeeShop.model.entity;
 import bg.coffeshop.coffeeShop.constant.GenderEnum;
 
 import javax.persistence.*;
-import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "users")
@@ -16,8 +16,7 @@ public class UserEntity extends BaseEntity {
     private String password;
     private String phoneNumber;
     private Integer age;
-    private List<Role> roles;
-    private List<Order> orders;
+    private Role role;
 
     public UserEntity() {
     }
@@ -98,25 +97,12 @@ public class UserEntity extends BaseEntity {
         return this;
     }
 
-    @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(name = "users_roles",
-            joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"),
-            inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id"))
-    public List<Role> getRoles() {
-        return roles;
+    @ManyToOne(fetch = FetchType.EAGER)
+    public Role getRole() {
+        return role;
     }
 
-    public UserEntity setRoles(List<Role> roles) {
-        this.roles = roles;
-        return this;
-    }
-
-    @OneToMany(mappedBy = "client")
-    public List<Order> getOrders() {
-        return orders;
-    }
-
-    public void setOrders(List<Order> orders) {
-        this.orders = orders;
+    public void setRole(Role role) {
+        this.role = role;
     }
 }

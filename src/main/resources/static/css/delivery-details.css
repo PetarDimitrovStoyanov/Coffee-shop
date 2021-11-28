@@ -20,7 +20,7 @@ input, select {
     margin-bottom: 40px;
 }
 
-select{
+select {
     margin-top: 5px;
 }
 
@@ -58,6 +58,24 @@ footer {
     position: relative;
 }
 
+.btn-cancel {
+    margin-top: 25px;
+    width: 138px;
+}
+
+.btn-cancel:hover{
+    color: white;
+}
+
+.btn-cancel-wrapper > a {
+    width: 138px;
+    margin-right: 0;
+}
+
+.navigation{
+    margin-right: 170px;
+}
+
 
 @media all and (max-width: 1220px ) {
     .register-form {
@@ -78,10 +96,9 @@ footer {
         flex-direction: column;
     }
 
-    .footer{
+    .footer {
         position: relative;
     }
-
 
 
 }

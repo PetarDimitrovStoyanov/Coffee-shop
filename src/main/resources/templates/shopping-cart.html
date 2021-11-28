@@ -16,82 +16,60 @@
 <div th:replace="fragments/common::headerNavTwo"></div>
 
 <section class="content">
-    <a class="red" href="">← Continue shopping</a>
+    <a class="red" th:href="@{/products}">← Continue shopping</a>
     <h2 class="text brown">Your cart</h2>
-
-    <table class="table">
-        <thead>
-        <tr>
-            <th scope="col" class="light-grey">Product</th>
-            <th scope="col" class="light-grey center-td">Price in USD/$</th>
-            <th scope="col" class="light-grey center-td">Quantity</th>
-            <th scope="col" class="light-grey center-td">Total in USD/$</th>
-            <th scope="col" class="light-grey"></th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-            <td class="td-flex">
-                <div class="wrap-img-table">
-                    <img src="/images/products/billowing.jpg" alt="">
-                </div>
-                <div class="text-table">
-                    <h3 class="brown text small">Coffee Pod 12-Pack</h3>
-                    <p class="">Velvet Blaze (Medium Blend)</p>
-                </div>
-            </td>
-            <td><p class="light-brown-text center-td">14.95</p></td>
-            <td class="middle-td">
-                <div class="pieces-div center-td">
-                    <i class="fas fa-minus sign"></i>
-                    <input disabled type="text" id="qty1" name="qty" value="1" class="pieces">
-                    <i class="fas fa-plus sign"></i>
-                </div>
-            </td>
-            <td class="step"><p class="light-brown-text center-td total">14.95</p></td>
-            <td>
-                <button class="remove-btn-shop-cart center-td gold">Remove</button>
-            </td>
-        </tr>
-        <tr>
-            <td class="td-flex">
-                <div class="wrap-img-table"><img src="/images/products/billowing.jpg" alt=""></div>
-                <div class="middle-td">
-                    <h3 class="brown text small">Velvet Blaze</h3>
-                    <p>Whole Bean</p>
-                </div>
-            </td>
-            <td><p class="light-brown-text center-td">12.95</p></td>
-            <td class="center-td">
-                <div class="pieces-div center-td">
-                    <i class="fas fa-minus sign"></i>
-                    <input disabled type="text" id="qty2" name="qty" value="1" class="pieces">
-                    <i class="fas fa-plus sign"></i>
-                </div>
-            </td>
-            <td class="step"><p class="light-brown-text center-td total">12.95</p></td>
-            <td>
-                <button class="remove-btn-shop-cart center-td gold">Remove</button>
-            </td>
-        </tr>
-        </tbody>
-        <tfoot>
-        <tr>
-            <td>
-                <p id="discount">Your order is above $35. <br> There is a discount of $5.</p>
-                <p id="discountHundred">Your order is above $100. <br> There is a discount of $15.</p>
-            </td>
-            <td></td>
-            <td></td>
-            <td id="totalSum" class="light-brown-text center-td">0.00</td>
-            <td></td>
-        </tr>
-        </tfoot>
-    </table>
-    <div class="wrapper">
-        <button class="red btn-red btn-header-red pay-btn">PAY OUT</button>
-    </div>
-
+    <form th:action="@{/payments/shopping-cart}" th:method="POST">
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col" class="light-grey">Product</th>
+                <th scope="col" class="light-grey center-td">Price in USD/$</th>
+                <th scope="col" class="light-grey center-td">Quantity</th>
+                <th scope="col" class="light-grey center-td">Total in USD/$</th>
+                <th scope="col" class="light-grey"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="s : ${shoppingCart.getItems()}">
+                <td class="td-flex">
+                    <div class="wrap-img-table">
+                        <img class="img-shopping-cart" th:id="*{s.product.id}" src="/images/products/billowing.jpg"
+                             alt="no image available">
+                    </div>
+                    <div class="text-table">
+                        <h3 class="brown text small" th:text="*{s.product.name}">Coffee Pod 12-Pack</h3>
+                        <p class="" th:text="*{s.product.type}"></p>
+                    </div>
+                </td>
+                <td><p class="light-brown-text center-td" th:text="*{s.price}"></p></td>
+                <td class="middle-td">
+                    <div class="pieces-div center-td">
+                        <input disabled type="text" id="qty1" name="piece" value="1" class="pieces" th:value="*{s.piece}">
+                    </div>
+                </td>
+                <td class="step"><p class="light-brown-text center-td total" th:text="*{s.total}"></p></td>
+                <td class="remove-container">
+                    <a th:href="@{/payments/remove-it/{id}(id=*{s.product.id})}" class="remove-btn-shop-cart center-td gold">Remove</a>
+                </td>
+            </tr>
+            </tbody>
+            <tfoot>
+            <tr>
+                <td></td>
+                <td></td>
+                <td id="totalSum" class="light-brown-text center-td">0.00</td>
+                <td></td>
+            </tr>
+            </tfoot>
+        </table>
+        <div class="wrapper">
+            <th:block th:if="${shoppingCart.getItems().size() > 0}">
+                <button th:action="@{/payments/shopping-cart}" th:method="post"
+                        class="red btn-red btn-header-red pay-btn">PAY OUT
+                </button>
+            </th:block>
+        </div>
+    </form>
 </section>
 <div th:replace="fragments/common::footer"></div>
 <script th:src="@{../js/shopping-cart.js}"></script>

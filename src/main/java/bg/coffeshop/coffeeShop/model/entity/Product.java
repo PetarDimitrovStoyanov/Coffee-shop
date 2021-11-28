@@ -1,9 +1,7 @@
 package bg.coffeshop.coffeeShop.model.entity;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
-import java.util.List;
 
 @Entity
 @Table(name = "products")
@@ -12,7 +10,8 @@ public class Product extends BaseEntity {
     private BigDecimal price;
     private String type;
     private String picture;
-    private List<Order> orders;
+    private Order order;
+    private Integer piece;
 
    public Product() {
    }
@@ -57,13 +56,22 @@ public class Product extends BaseEntity {
       return this;
    }
 
-   @ManyToMany(mappedBy = "products", fetch = FetchType.EAGER)
-   public List<Order> getOrders() {
-      return orders;
+   @ManyToOne()
+   public Order getOrder() {
+      return order;
    }
 
-   public Product setOrders(List<Order> orders) {
-      this.orders = orders;
+   public Product setOrder(Order order) {
+      this.order = order;
       return this;
+   }
+
+   @Column(nullable = false)
+   public Integer getPiece() {
+      return piece;
+   }
+
+   public void setPiece(Integer piece) {
+      this.piece = piece;
    }
 }

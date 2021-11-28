@@ -1,12 +1,12 @@
-package bg.coffeshop.coffeeShop.model.view;
+package bg.coffeshop.coffeeShop.model.service;
 
 import bg.coffeshop.coffeeShop.constant.GenderEnum;
-import bg.coffeshop.coffeeShop.constant.RoleEnum;
+import bg.coffeshop.coffeeShop.model.entity.Order;
 import bg.coffeshop.coffeeShop.model.entity.Role;
 
-import java.util.Set;
+import java.util.List;
 
-public class UserViewModel {
+public class UserRegistrationServiceModel {
 
     private Long id;
     private String firstName;
@@ -18,9 +18,9 @@ public class UserViewModel {
     private String phoneNumber;
     private Integer age;
     private Role role;
+    private List<Order> orders;
 
-
-    public UserViewModel() {
+    public UserRegistrationServiceModel() {
     }
 
     public Long getId() {
@@ -101,5 +101,13 @@ public class UserViewModel {
 
     public void setRole(Role role) {
         this.role = role;
+    }
+
+    public List<Order> getOrders() {
+        return orders;
+    }
+
+    public void setOrders(List<Order> orders) {
+        this.orders = orders;
     }
 }

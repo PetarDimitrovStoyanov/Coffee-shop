@@ -226,6 +226,10 @@ body > section.middle-content > div.container.mt-3.mb-4 > div {
     margin-right: 3px;
 }
 
+.navigation{
+    margin-right: 170px;
+}
+
 @media all and (max-width: 1220px) {
     .message-section {
         display: none;

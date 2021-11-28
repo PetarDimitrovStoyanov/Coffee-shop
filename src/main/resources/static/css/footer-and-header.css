@@ -28,7 +28,7 @@
     padding-right: 25px;
     padding-left: 25px;
     top: 50px;
-    font-size: 30px;
+    font-size: 33px;
     align-items: center;
 }
 
@@ -208,6 +208,12 @@ ul > li:hover {
     margin-top: 25px
 }
 
+.navigation > ul{
+/*    display: flex;
+    justify-content: space-between;*/
+    padding-left: 0;
+}
+
 
 @media all and (max-width: 750px ) {
     .video-text {
@@ -366,6 +372,10 @@ ul > li:hover {
 
 @media all and (max-width: 1220px ) {
 
+    body > div:nth-child(1) > header > div.btn-header > a > i{
+        display: none;
+    }
+
     /*Hamburger*/
     .navbar {
         display: block;
@@ -516,7 +526,6 @@ ul > li:hover {
     .nav-menu.active {
         left: 0;
     }
-
 }
 
 

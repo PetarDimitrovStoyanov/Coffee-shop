@@ -43,6 +43,15 @@ for (let i = 0; i < signs.length; i++) {
     })
 }
 
+document.getElementsByClassName("header")[0].addEventListener("mouseover", () => {
+    document.getElementsByClassName("logo-add-product")[0].style.color = "#4D3127";
+})
+
+document.getElementsByClassName("header")[0].addEventListener("mouseout", () => {
+    document.getElementsByClassName("logo-add-product")[0].style.color = "white";
+})
+
+
 
 
 

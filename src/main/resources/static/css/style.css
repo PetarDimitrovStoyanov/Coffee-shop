@@ -13,4 +13,14 @@ html, body {
     overflow-x: hidden;
 }
 
+#myform3, #myform6, #myform5, #myform4, #myform3, #myform2, #myform {
+    position: absolute;
+    left: 3000px
+}
+
+#header > div.navigation > ul > li:nth-child(5) > a{
+    cursor: pointer;
+    color: white;
+}
+
 
