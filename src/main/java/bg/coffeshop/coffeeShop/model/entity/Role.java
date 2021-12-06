@@ -3,14 +3,14 @@ package bg.coffeshop.coffeeShop.model.entity;
 import bg.coffeshop.coffeeShop.constant.RoleEnum;
 
 import javax.persistence.*;
-import java.util.Set;
+import java.util.List;
 
 @Entity
 @Table(name = "roles")
 public class Role extends BaseEntity {
 
     private RoleEnum name;
-    private Set<UserEntity> userEntity;
+    private List<UserEntity> userEntity;
 
     public Role() {
     }
@@ -25,12 +25,12 @@ public class Role extends BaseEntity {
         this.name = name;
     }
 
-    @OneToMany(mappedBy = "role", fetch = FetchType.EAGER)
-    public Set<UserEntity> getUserEntity() {
+    @OneToMany(mappedBy = "role")
+    public List<UserEntity> getUserEntity() {
         return userEntity;
     }
 
-    public void setUserEntity(Set<UserEntity> userEntity) {
+    public void setUserEntity(List<UserEntity> userEntity) {
         this.userEntity = userEntity;
     }
 }

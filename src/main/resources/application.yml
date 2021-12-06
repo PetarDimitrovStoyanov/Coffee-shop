@@ -21,11 +21,7 @@ spring:
         multipart:
             max-file-size: 10MB
             max-request-size: 10MB
-    cloudinary:
-        api-key: 559387692836932
-        api-secret: ${CLOUDINARY_API_SECRET}
-        cloud-name: dzimifjgh
 twilio:
     account_sid: ACc746f4bd07b68229d013043ceab3d693
-    auth_token: c3503a8bace16bce228025cf2937e23d
+    auth_token: ${TWILIO}
     trial_number: +16084476152

@@ -1,0 +1,12 @@
+.wrapper-img-order-it {
+    width: 100%;
+}
+
+.img-order-it {
+    width: 100%;
+    object-fit: contain;
+}
+
+.navigation{
+    margin-right: 170px;
+}

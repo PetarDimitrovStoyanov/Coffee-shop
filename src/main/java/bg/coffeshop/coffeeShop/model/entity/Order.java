@@ -7,12 +7,11 @@ import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
-import java.util.Set;
 
 @Entity
 @Table(name = "orders")
 public class Order extends BaseEntity {
-    private Set<Product> products;
+    private List<Product> products;
     private Payment payment;
     private Delivery delivery;
     private LocalDate date;
@@ -22,13 +21,13 @@ public class Order extends BaseEntity {
     public Order() {
     }
 
-    @OneToMany(mappedBy="order", fetch=FetchType.EAGER)
+    @OneToMany(mappedBy="order")
     @Fetch(value = FetchMode.SUBSELECT)
-    public Set<Product> getProducts() {
+    public List<Product> getProducts() {
         return products;
     }
 
-    public void setProducts(Set<Product> products) {
+    public void setProducts(List<Product> products) {
         this.products = products;
     }
 

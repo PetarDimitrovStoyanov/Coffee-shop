@@ -1,13 +1,11 @@
-package bg.coffeshop.coffeeShop.model.entity;
+package bg.coffeshop.coffeeShop.model.service;
 
 import bg.coffeshop.coffeeShop.constant.GenderEnum;
+import bg.coffeshop.coffeeShop.model.entity.Role;
 
-import javax.persistence.*;
-import java.util.Set;
+public class UserServiceModel {
 
-@Entity
-@Table(name = "users")
-public class UserEntity extends BaseEntity {
+    private Long id;
     private String firstName;
     private String lastName;
     private String username;
@@ -18,86 +16,81 @@ public class UserEntity extends BaseEntity {
     private Integer age;
     private Role role;
 
-    public UserEntity() {
+    public UserServiceModel() {
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getFirstName() {
         return firstName;
     }
 
-    public UserEntity setFirstName(String firstName) {
+    public void setFirstName(String firstName) {
         this.firstName = firstName;
-        return this;
     }
 
     public String getLastName() {
         return lastName;
     }
 
-    public UserEntity setLastName(String lastName) {
+    public void setLastName(String lastName) {
         this.lastName = lastName;
-        return this;
     }
 
-    @Column(nullable = false, unique = true)
     public String getUsername() {
         return username;
     }
 
-    public UserEntity setUsername(String username) {
+    public void setUsername(String username) {
         this.username = username;
-        return this;
     }
 
-    @Enumerated(EnumType.STRING)
     public GenderEnum getGender() {
         return gender;
     }
 
-    public UserEntity setGender(GenderEnum gender) {
+    public void setGender(GenderEnum gender) {
         this.gender = gender;
-        return this;
     }
 
-    @Column(nullable = false, unique = true)
     public String getEmail() {
         return email;
     }
 
-    public UserEntity setEmail(String email) {
+    public void setEmail(String email) {
         this.email = email;
-        return this;
     }
 
-    @Column(nullable = false)
     public String getPassword() {
         return password;
     }
 
-    public UserEntity setPassword(String password) {
+    public void setPassword(String password) {
         this.password = password;
-        return this;
     }
 
     public String getPhoneNumber() {
         return phoneNumber;
     }
 
-    public UserEntity setPhoneNumber(String phoneNumber) {
+    public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
-        return this;
     }
 
     public Integer getAge() {
         return age;
     }
 
-    public UserEntity setAge(Integer age) {
+    public void setAge(Integer age) {
         this.age = age;
-        return this;
     }
 
-    @ManyToOne()
     public Role getRole() {
         return role;
     }

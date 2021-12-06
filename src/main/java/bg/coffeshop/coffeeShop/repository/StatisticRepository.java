@@ -10,7 +10,7 @@ import javax.transaction.Transactional;
 
 @Repository
 public interface StatisticRepository extends JpaRepository<Statistic, Long> {
-    @Transactional
+
     @Modifying
     @Query("DELETE FROM Statistic")
     void dropTable();
