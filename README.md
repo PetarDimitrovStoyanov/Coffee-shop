@@ -8,68 +8,35 @@ The application supports two types of roles - admin and user. The administrator 
 <ul>
 <li> public part (accessible without authentication) - the non-authenticated users can see:
   <ol type="1">
-  <li> Start page - it contains brief information about the web application and buttons for login and register. </li>
+  <li> Home page - it contains brief information about the company. </li>
   <li> Login page - contains a login form.</li>
   <li> Register page - contains a registration form.</li>
+  <li> About page - it contains full information about the company and products. From here the admin can see the list of users and change their roles</li>
   <li> Error page - "page not found 404" pops up when someone tries to reach a non-existing page.</li>
   </ol>
 </li>
 <li> private part (available for logined/registered users) - it contains the following pages:
    <ol type="1">
-  <li> Home page - has an animated greeting message along with a carousel section that shows the website's suggestions for wanted games.</li>
-  <li> All games page - it contains a search field that allows searching of a game by its name. Also, has a section for sorting by price (ascending and descending) along with a second section for filtering by category. 
-                     And all that working mutual to obtain the common result (by search, sort, and filter).</li>
-  <li> Create game page - holds an empty form to fill out. </li>
-  <li> Edit game page - holds filled form, that contains the data of the selected game ad. The information can be amended by the user if he is a creator or has an admin role.</li>
-  <li> My games page - a completely animated page that contains an interactive section that shows an image of the hovered game and a section for all games created by the currently logged user.</li>
-  <li> Details page - by click on the details button of some specific game ad, the logged user will be redirected to a page that contains a section with game ad information as game name, category, price, description,
-                   year of the game release, image, and creator's email address for contact.</li>
+  <li> Product page - it contains the full list of products that the company offers. From here each user can add the specific product/s to the shopping basked.</li>
+  <li> Shopping cart - holds the list of chosen products for buying.</li>
+      <li> Delivery page - this is a special page - form in which the user write the wanted delivery information.</li>
+      <li> Payment page - it is a form in which the user choose the payment options and confirm the deal.</li>
+     <li> Order done page - this is a page that inform the client that he has made the order successfully. This page trigger an email notification to the company in which is described the full info of the order (delivery, payment and etc.). On each 4th hour the application sent a SMS message to the major admin and inform him for the current turnover. Also each day at 00:00 the application delete all orders and visitations</li>
      </ol>
 </li>
 <li> administrator part (available for admins only):
   <ol type="1">
-   <li> All users page - it is visible only for users with admin roles. This page shows all registered users and their names, emails, id's and roles in table form, which has pagination. 
-Some of the columns have an option to be order reversed in order to be easy for working. Of course, that is not all, on this page is also a search section, 
-that allows searching by email in order to be easier for the admin to find the person he wants. </li>
+   <li> Admin page - it is visible only for users with admin roles. This page contains the statistic result for the orders mafe + all visitations made on the product page.</li>
+     <li> Add product page - it can be accessed from the admin page and will allow to add or delete a product</li>
+    <li> Edit product page - it can be accessed from the product page by clicking on a special button. It holds an option for editing.</li>
     </ol>
   </li>
-  </ul>
+</ul>
   
 <hr>
 
 <h3>Project structure:</h3>
-<ul>
-<li>Components folder:
-  <ol type="1">
-<li>Authentication module - contains Login and Register components, both use template-driven form.</li>
-<li>Landing module - Includes the following components: 
-  <ul>
-      <li> AllUsersComponent - it shows all the registered users on the admin via pagination table that has a search field.</li>
-      <li> CarouselNavigationComponent - it is part of a home page. It is a standard carousel component that shows dinamicly few game ads as suggestions to the user.</li>
-      <li> GameCreateComponent- it use a reactive form to creat a game ad.</li>
-      <li> GameEditComponent - it use a reactive form to edit a game ad.</li>
-      <li> GameDetailsComponent - it shows the current info of the game ad plus it has a special section that contains the previously watched game ads.</li>
-      <li> GameAllComponent - it shows all current game ads. The games can be filtered, sorted and searched by input field.</li>
-      <li> GameByUserComponent - it shows all current games that the specific user has created using child data transfer (from shared template).</li>
-      <li> GameUserComponent - it contains the created games of the current logged user using child data transfer (from shared template).</li>
-      <li> HomeComponent - it contains the carousel component and some animated greetings message.</li>
-      <li> StartComponent - a simple static web page that has some short description for the website and holds redirect buttons to login and register.</li>
-      <li> Page not found - an error page, in case the user tries to reach an unexisting page.</li>
-  </ol>
-  </li>
-<li>Shared module - contains Header area, simple text Footer, and the template for the created game ads of a specific user using Angular animations.</li>
-    </ol>
- </li>
-<li>Core folder:
-  <ol type="1">
-<li>Services subfolder - auth service, game service and user service that handling calls to database using Observables.</li>
-<li>Guards subfolder - authGuard and admin-authGuard that limit the access of the non-authorized users to specific pages.</li>
-<li>Interceptors subfolder - jwt-interceptor that add headers to the specific http request and response-handler interceptor which handle the specific response and shows the notification animated message using ngx-toastr.</li>
-<li>Models subfolder - contains the model interfaces for a Game ad and a User</li>
-  </ol>
-  </li>
-  </ul>
-
+<p>The project structure is a standard MVC which contains some specific utillity class-es such as for the SMS and email notifications</p>
 
 For this project are used Angular and Type Script for front-end (with Bootstrap, custom HMTL and CSS). For the back end are used Node.js Server and MongoDB. The routing in this app is made with Аngular routing (Lazy loading).
 
