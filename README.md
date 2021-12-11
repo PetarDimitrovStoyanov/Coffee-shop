@@ -12,7 +12,7 @@ The application supports two types of roles - admin and user. The administrator 
   <li> Login page - contains a login form.</li>
   <li> Register page - contains a registration form.</li>
   <li> About page - it contains full information about the company and products. From here the admin can see the list of users and change their roles</li>
-  <li> Error page - "page not found 404" pops up when someone tries to reach a non-existing page.</li>
+  <li> Error page - a funny "page not found 404" page pops up when someone tries to reach a non-existing page.</li>
   </ol>
 </li>
 <li> private part (available for logined/registered users) - it contains the following pages:
@@ -37,10 +37,11 @@ The application supports two types of roles - admin and user. The administrator 
 
 <h3>Project structure:</h3>
 <p>The project structure is a standard MVC which contains some specific utillity class-es such as for the SMS and email notifications</p>
+For this application are user CSS, HTML, JQuery, Thymeleaf and JavaScript for the Front-End and Java (Spring framework, Hibernate) for the Back-End part along with MySQL.
+About the testing of the application are used JUnit5 - implemented in Unit and Integration tests.
+There has been used a special library for the SMS notifications - javax.mail. The SMS notification are implemented using Twilio API.
 
-For this project are used Angular and Type Script for front-end (with Bootstrap, custom HMTL and CSS). For the back end are used Node.js Server and MongoDB. The routing in this app is made with Аngular routing (Lazy loading).
-
-To start the application open the angular project and the server and run npm install.
+To start the application clone the "final" repository from github, put your credentials for the MySQL DB and make an enviroment variable named "TWILIO" - the value of this variable will be given on the project defence, owing some security reasons.
 To enter as an admin please use:
-email: admin@admin.com
-password: Admin
+email: admin@abv.bg
+password: asd
