@@ -1,11 +1,8 @@
 # Coffee-shop
-<h1>Spring Advanced - project</h1>
 
 <h2>Project idea:</h2>
-This is a small website for computer game ads. Anyone can make their own registration and start buying or selling a computer games using ads.
-There are two types of roles - users and admins. The users can register, log in, create game ads, edit and delete their own ads, and use the search and filter options to find the wanted game. 
-Once the game ad is found they can click on the button "make an offer" to write an email to the current ad owner and make an offer.
-The admin, can make everything that the user can do, and also edit not only his own ads but of all other users too. He can see all the registered users and change some of their data (like the role, name, and email).
+This is a small web application that aims to introduce potential customers to the company.
+The application supports two types of roles - admin and user. The administrator can control the entire process of adding, deleting and modifying products, including determining which other user can become an administrator, as well as monitor statistics related to the operation of the application.
 
 <h3>Short Info and Functionalities:</h3>
 <ul>
