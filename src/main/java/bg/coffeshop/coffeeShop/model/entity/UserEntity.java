@@ -3,7 +3,6 @@ package bg.coffeshop.coffeeShop.model.entity;
 import bg.coffeshop.coffeeShop.constant.GenderEnum;
 
 import javax.persistence.*;
-import java.util.Set;
 
 @Entity
 @Table(name = "users")

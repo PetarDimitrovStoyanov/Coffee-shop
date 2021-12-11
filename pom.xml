@@ -17,14 +17,6 @@
         <java.version>11</java.version>
     </properties>
     <dependencies>
-        <!-- https://mvnrepository.com/artifact/com.cloudinary/cloudinary -->
-        <dependency>
-            <groupId>com.cloudinary</groupId>
-            <artifactId>cloudinary</artifactId>
-            <version>1.0.14</version>
-        </dependency>
-
-
         <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-configuration-processor -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -115,6 +107,22 @@
             <artifactId>twilio</artifactId>
             <version>7.34.0</version>
         </dependency>
+
+        <!-- https://mvnrepository.com/artifact/com.h2database/h2 -->
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.hsqldb/hsqldb -->
+        <dependency>
+            <groupId>org.hsqldb</groupId>
+            <artifactId>hsqldb</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+
 
 
     </dependencies>

@@ -63,7 +63,6 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public void deleteById(Long id) {
-
         this.productRepository.deleteById(id);
     }
 
@@ -83,9 +82,7 @@ public class ProductServiceImpl implements ProductService {
         productServiceModel.setName(productBindingModel.getName());
         productServiceModel.setPrice(productBindingModel.getPrice());
         productServiceModel.setType(productBindingModel.getType());
-
-        productServiceModel
-                .setOrders(new ArrayList<>());
+        productServiceModel.setOrders(new ArrayList<>());
 
         if (!file.isEmpty()) {
             productServiceModel.setPicture(Base64.getEncoder().encodeToString(file.getBytes()));

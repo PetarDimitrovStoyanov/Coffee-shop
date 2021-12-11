@@ -86,17 +86,12 @@ public class UserController {
 
     @PostMapping("/order-it/{id}")
     public String addToBasket(ProductServiceModel productServiceModel, @PathVariable Long id) {
-
         if (productServiceModel.getPiece() == null || productServiceModel.getPiece() <= 0) {
             return String.format("redirect:/order-it/%s", id);
         }
 
         Product product = this.modelMapper.map(this.productService.findById(id), Product.class);
-
-        ShoppingCartEntity entity = new ShoppingCartEntity();
-        entity.setPiece(productServiceModel.getPiece());
-        entity.setPrice(product.getPrice());
-        entity.setProduct(product);
+        ShoppingCartEntity entity = setShoppingCartData(productServiceModel, product);
 
         boolean isPresented = false;
         ShoppingCartEntity shoppingCartEntity = null;
@@ -120,6 +115,14 @@ public class UserController {
     @ModelAttribute
     private ProductServiceModel productServiceModel() {
         return new ProductServiceModel();
+    }
+
+    private ShoppingCartEntity setShoppingCartData(ProductServiceModel productServiceModel, Product product) {
+        ShoppingCartEntity entity = new ShoppingCartEntity();
+        entity.setPiece(productServiceModel.getPiece());
+        entity.setPrice(product.getPrice());
+        entity.setProduct(product);
+        return entity;
     }
 
 }

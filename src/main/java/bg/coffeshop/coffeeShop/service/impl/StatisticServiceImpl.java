@@ -23,11 +23,11 @@ public class StatisticServiceImpl implements StatisticService {
     }
 
     @Override
-    public void saveVisitationInDataBase(String ip) {
+    public Statistic saveVisitationInDataBase(String ip) {
         Statistic statistic = new Statistic();
         statistic.setIpAddress(ip);
         statistic.setLocalDateTime(LocalDateTime.now());
-        this.statisticRepository.saveAndFlush(statistic);
+        return this.statisticRepository.saveAndFlush(statistic);
     }
 
     @Override

@@ -1,6 +1,7 @@
 package bg.coffeshop.coffeeShop.model.binding;
 
 import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.math.BigDecimal;
@@ -24,7 +25,7 @@ public class ProductBindingModel {
         this.id = id;
     }
 
-    @NotNull(message = "The price is missing!")
+    @NotBlank(message = "The price is missing!")
     @Size(min = 3, message = "The name should be at least 3 characters long!")
     public String getName() {
         return name;
@@ -35,7 +36,7 @@ public class ProductBindingModel {
     }
 
     @Min(value = 0, message = "The price should be positive number!")
-    @NotNull(message = "The price is missing!")
+    @NotBlank(message = "The price is missing!")
     public BigDecimal getPrice() {
         return price;
     }
@@ -44,7 +45,7 @@ public class ProductBindingModel {
         this.price = price;
     }
 
-    @NotNull(message = "The return type is missing!")
+    @NotBlank(message = "The return type is missing!")
     public String getType() {
         return type;
     }

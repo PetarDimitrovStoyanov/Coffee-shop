@@ -52,21 +52,6 @@ public class AuthenticationController {
         return "redirect:login";
     }
 
-    @GetMapping("/double-authentication")
-    public String doubleAuthentication() {
-        return "double-authentication";
-    }
-
-    @GetMapping("/forgotten-password")
-    public String password() {
-        return "forgotten-password";
-    }
-
-    @GetMapping("/user-profile")
-    public String profile() {
-        return "user-profile";
-    }
-
     @ModelAttribute
     private UserRegisterBindingModel registerUserBindingModel() {
         return new UserRegisterBindingModel();

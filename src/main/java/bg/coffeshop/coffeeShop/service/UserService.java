@@ -18,7 +18,7 @@ public interface UserService {
 
     void initFirstUser() throws Exception;
 
-    void register(UserRegistrationServiceModel userEntity) throws Exception;
+    UserEntity register(UserRegistrationServiceModel userEntity) throws Exception;
 
     boolean isUserExists(UserRegisterBindingModel userRegisterBindingModel);
 

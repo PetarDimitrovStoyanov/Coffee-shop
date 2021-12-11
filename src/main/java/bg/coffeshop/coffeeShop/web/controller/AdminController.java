@@ -4,11 +4,9 @@ import bg.coffeshop.coffeeShop.model.service.ProductServiceModel;
 import bg.coffeshop.coffeeShop.model.binding.ProductBindingModel;
 import bg.coffeshop.coffeeShop.model.view.OrderViewModel;
 import bg.coffeshop.coffeeShop.model.view.UserViewModel;
-import bg.coffeshop.coffeeShop.repository.UserEntityRepository;
 import bg.coffeshop.coffeeShop.service.OrderService;
 import bg.coffeshop.coffeeShop.service.ProductService;
 import bg.coffeshop.coffeeShop.service.UserService;
-import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -18,8 +16,6 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Base64;
 import java.util.List;
 
 @Controller
@@ -62,6 +58,8 @@ public class AdminController {
             return "redirect:/edit-product";
         }
         ProductServiceModel productServiceModel2 = this.productService.mapProductServiceModel(productServiceModel, file);
+        productServiceModel2.setPiece(0);
+        System.out.println();
         this.productService.update(productServiceModel2, id);
 
         return "redirect:/products";

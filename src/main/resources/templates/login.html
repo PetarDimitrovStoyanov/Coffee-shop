@@ -15,14 +15,14 @@
 <body>
 <div th:replace="fragments/common::headerNavTwo"></div>
 
-<form th:action="@{/auth/login}" th:method="post" th:object="${loginBindingModel}" class="register-form">
+<form th:action="@{/auth/login}" th:method="post" class="register-form">
     <h2>LOGIN</h2>
 
     <div>
         <label for="email" class="form-label">Email:</label>
         <input type="email" id="email" class="form-control" name="email">
     </div>
-    <p id="error-email" style="display: none; color: red">The email must contain @ symbol</p>
+    <p id="error-email" style="display: none; color: red">The email is not in the correct format</p>
     <div>
         <label for="password" class="form-label">Password:</label>
         <input type="password" id="password" class="form-control" name="password">

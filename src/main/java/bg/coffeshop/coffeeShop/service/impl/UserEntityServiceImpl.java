@@ -90,10 +90,10 @@ public class UserEntityServiceImpl implements UserService {
 
     @Transactional
     @Modifying
-    public void register(UserRegistrationServiceModel userEntity) throws Exception {
+    public UserEntity register(UserRegistrationServiceModel userEntity) throws Exception {
         UserEntity user = this.modelMapper.map(userEntity, UserEntity.class);
         user.setRole(this.roleService.findRoleByName(RoleEnum.USER));
-        this.userEntityRepository.saveAndFlush(user);
+        return this.userEntityRepository.saveAndFlush(user);
     }
 
     @Override

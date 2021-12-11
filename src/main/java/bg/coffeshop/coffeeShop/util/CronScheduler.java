@@ -39,8 +39,7 @@ public class CronScheduler {
     @Scheduled(fixedDelay = 14400000)
     public void textMessage() {
         BigDecimal totalTurnover = this.orderService.getTotalTurnover();
-        // TODO: TO BE REMOVED
-        if (totalTurnover != null && totalTurnover.doubleValue() >= 100000) {
+        if (totalTurnover != null && totalTurnover.doubleValue() > 0.01) {
             SmsRequest smsRequest = new SmsRequest("+359888022053",
                     String.format("The total turnover till now is: %s$", totalTurnover));
             smsService.sendSms(smsRequest);

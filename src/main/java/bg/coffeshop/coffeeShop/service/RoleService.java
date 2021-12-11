@@ -7,4 +7,5 @@ public interface RoleService {
     void initRoles();
 
     Role findRoleByName(RoleEnum name) throws Exception;
+
 }
