@@ -36,7 +36,7 @@ The application supports two types of roles - admin and user. The administrator 
 <hr>
 
 <h3>Project structure:</h3>
-<p>The project structure is a standard MVC which contains some specific utillity class-es such as for the SMS and email notifications</p>
+<p>The project structure is a standard MVC which contains some specific utillity class's such as for the SMS and email notifications</p>
 For this application are user CSS, HTML, JQuery, Thymeleaf and JavaScript for the Front-End and Java (Spring framework, Hibernate) for the Back-End part along with MySQL.
 About the testing of the application are used JUnit5 - implemented in Unit and Integration tests.
 There has been used a special library for the SMS notifications - javax.mail. The SMS notification are implemented using Twilio API.
