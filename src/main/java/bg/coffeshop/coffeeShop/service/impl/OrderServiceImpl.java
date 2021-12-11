@@ -79,7 +79,7 @@ public class OrderServiceImpl implements OrderService {
             StringBuilder builder = new StringBuilder();
             builder.append("Order id: ").append(order.getId())
                     .append(System.lineSeparator())
-                    .append("^Total value: ").append(order.getTotalValue()).append("$")
+                    .append("^Total value: ").append(order.getTotalValue().doubleValue()).append("$")
                     .append(System.lineSeparator())
                     .append("^<--------------------------------------------------------->")
                     .append(System.lineSeparator())

@@ -36,7 +36,7 @@ public class ProductBindingModel {
     }
 
     @Min(value = 0, message = "The price should be positive number!")
-    @NotBlank(message = "The price is missing!")
+    @NotNull(message = "The price is missing!")
     public BigDecimal getPrice() {
         return price;
     }

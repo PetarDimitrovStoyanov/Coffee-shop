@@ -41,13 +41,13 @@
                         <p class="" th:text="*{s.product.type}"></p>
                     </div>
                 </td>
-                <td><p class="light-brown-text center-td" th:text="*{s.price}"></p></td>
+                <td><p class="light-brown-text center-td" th:text="*{s.price.doubleValue()}"></p></td>
                 <td class="middle-td">
                     <div class="pieces-div center-td">
                         <input disabled type="text" id="qty1" name="piece" value="1" class="pieces" th:value="*{s.piece}">
                     </div>
                 </td>
-                <td class="step"><p class="light-brown-text center-td total" th:text="*{s.total}"></p></td>
+                <td class="step"><p class="light-brown-text center-td total" th:text="*{s.total.doubleValue()}"></p></td>
                 <td class="remove-container">
                     <a th:href="@{/payments/remove-it/{id}(id=*{s.product.id})}" class="remove-btn-shop-cart center-td gold">Remove</a>
                 </td>
