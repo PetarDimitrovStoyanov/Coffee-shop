@@ -16,6 +16,7 @@ import org.modelmapper.ModelMapper;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
@@ -84,7 +85,7 @@ class ProductServiceImplTest {
         productRepository.deleteById(initialProduct.getId());
         serviceToTest.deleteById(initialProduct.getId());
 
-        var actual2 = serviceToTest.findAll()
+        List<ProductViewModel> actual2 = serviceToTest.findAll()
                 .stream()
                 .map(u -> modelMapper.map(u, ProductViewModel.class))
                 .collect(Collectors.toList());
@@ -97,7 +98,7 @@ class ProductServiceImplTest {
         when(productRepository.findById(initialProduct.getId()))
                 .thenReturn(Optional.of(initialProduct));
 
-        var actual = serviceToTest.findById(initialProduct.getId());
+        ProductServiceModel actual = serviceToTest.findById(initialProduct.getId());
 
         Assertions.assertEquals(actual.getName(), initialProduct.getName());
     }

@@ -73,7 +73,7 @@ class DeliveryServiceImplTest {
         when(deliveryRepository.findById(delivery.getId()))
                 .thenReturn(Optional.of(map));
 
-        var actual = underTest.findById(delivery.getId());
+        String actual = underTest.findById(delivery.getId());
 
         Assertions.assertEquals(actual, delivery.getCourier());
     }

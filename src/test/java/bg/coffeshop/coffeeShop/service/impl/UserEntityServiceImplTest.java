@@ -70,7 +70,7 @@ class UserEntityServiceImplTest {
         when(mockUserEntityRepository.findByUsername(userEntity.getUsername()))
                 .thenReturn(Optional.of(userEntity));
 
-        var actual = serviceToTest.getUser(userEntity.getUsername());
+        UserEntity actual = serviceToTest.getUser(userEntity.getUsername());
 
         Assertions.assertEquals(actual.getUsername(), userEntity.getUsername());
     }
@@ -80,7 +80,7 @@ class UserEntityServiceImplTest {
         when(mockUserEntityRepository.findById(userEntity.getId()))
                 .thenReturn(Optional.of(userEntity));
 
-        var actual = serviceToTest.findById(userEntity.getId());
+        String actual = serviceToTest.findById(userEntity.getId());
 
         Assertions.assertEquals(actual, userEntity.getFirstName() + " " + userEntity.getLastName());
     }
@@ -90,7 +90,7 @@ class UserEntityServiceImplTest {
         when(mockUserEntityRepository.findById(userEntity.getId()))
                 .thenReturn(Optional.of(userEntity));
 
-        var actual = serviceToTest.findByIdExport(userEntity.getId());
+        UserServiceModel actual = serviceToTest.findByIdExport(userEntity.getId());
         UserServiceModel map = this.modelMapper.map(actual, UserServiceModel.class);
 
         Assertions.assertEquals(map.getEmail(), userEntity.getEmail());
@@ -100,7 +100,7 @@ class UserEntityServiceImplTest {
     public void allUsers() {
         when(mockUserEntityRepository.findAll())
                 .thenReturn(List.of(userEntity));
-        var actual = serviceToTest.findAll()
+        List<UserViewModel> actual = serviceToTest.findAll()
                 .stream()
                 .map(u -> modelMapper.map(u, UserViewModel.class))
                 .collect(Collectors.toList());
@@ -161,7 +161,7 @@ class UserEntityServiceImplTest {
         mockUserEntityRepository.deleteById(userEntity.getId());
         serviceToTest.deleteUser(userEntity.getId());
 
-        var actual2 = serviceToTest.findAll()
+        List<UserViewModel> actual2 = serviceToTest.findAll()
                 .stream()
                 .map(u -> modelMapper.map(u, UserViewModel.class))
                 .collect(Collectors.toList());
