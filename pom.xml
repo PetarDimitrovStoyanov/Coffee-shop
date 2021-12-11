@@ -14,7 +14,7 @@
     <name>coffeeShop</name>
     <description>A project for Softuni - Spring Advanced 2021</description>
     <properties>
-        <java.version>11</java.version>
+        <java.version>1.8</java.version>
     </properties>
     <dependencies>
         <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-configuration-processor -->
