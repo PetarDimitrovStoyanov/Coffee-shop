@@ -1,7 +1,7 @@
 # Coffee-shop
 
 <h2>Project idea:</h2>
-This is a small web application that aims to introduce potential customers to the company.
+This is a small web application that aims to introduce potential customers to the company and offer makes direct sales if needed.
 The application supports two types of roles - admin and user. The administrator can control the entire process of adding, deleting and modifying products, including determining which other user can become an administrator, as well as monitor statistics related to the operation of the application.
 
 <h3>Short Info and Functionalities:</h3>
