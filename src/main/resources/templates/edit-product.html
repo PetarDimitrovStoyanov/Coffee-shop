@@ -30,7 +30,7 @@
         </div>
         <div class="form-group">
             <label for="price">Price:</label>
-            <input th:field="*{price}" th:errorclass="bg-white" type="number" class="form-control" id="price" min="0" th:placeholder="*{price}"
+            <input th:field="*{price}" th:errorclass="bg-white" type="number" class="form-control" id="price" step="0.01" min="0" th:placeholder="*{price}"
                    th:value="*{price}">
             <small th:if="${#fields.hasErrors('price')}"
                    th:errors="*{price}"

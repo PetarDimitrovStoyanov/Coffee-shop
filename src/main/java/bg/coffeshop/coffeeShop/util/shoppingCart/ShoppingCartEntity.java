@@ -3,6 +3,7 @@ package bg.coffeshop.coffeeShop.util.shoppingCart;
 import bg.coffeshop.coffeeShop.model.entity.Product;
 
 import java.math.BigDecimal;
+import java.text.NumberFormat;
 
 public class ShoppingCartEntity {
     private Product product;
@@ -34,7 +35,7 @@ public class ShoppingCartEntity {
     }
 
     public void setPrice(BigDecimal price) {
-        this.price = price;
+        this.price = new BigDecimal(Double.parseDouble(price.toString()));
     }
 
     public BigDecimal getTotal() {
